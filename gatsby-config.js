@@ -1,7 +1,7 @@
 module.exports = {
   siteMetadata: {
     // edit below
-    title: `Gatsby Starter Personal Blog`,
+    title: `Gatsby Starter Personal Blogz`,
     author: `Kyle Matthews`,
     description: `A starter personal blog with styled components, dark mode, and Netlify CMS.`,
     siteUrl: `https://gatsby-starter-blog-demo.netlify.com/`,
@@ -10,6 +10,7 @@ module.exports = {
     },
   },
   plugins: [
+    `gatsby-plugin-typescript`,
     `gatsby-plugin-netlify-cms`,
     `gatsby-plugin-styled-components`,
     `gatsby-transformer-sharp`,
@@ -86,5 +87,6 @@ module.exports = {
         pathToConfigModule: `src/utils/typography`,
       },
     },
+    `gatsby-plugin-remove-trailing-slashes`,
   ],
 }
