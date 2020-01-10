@@ -1,5 +1,6 @@
 backend:
-  name: test-repo
+  name: Content
+  repo: isthatcentered/gatsby-netlify-cms-poc
 
 media_folder: static/assets
 public_folder: assets
