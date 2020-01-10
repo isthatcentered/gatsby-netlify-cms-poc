@@ -1,5 +1,5 @@
 backend:
-  name: Content
+  name: github
   repo: isthatcentered/gatsby-netlify-cms-poc
 
 media_folder: static/assets
