@@ -3,17 +3,6 @@ import { graphql, Link, StaticQuery, useStaticQuery } from "gatsby"
 import cn from "classnames"
 import { Subtract } from "utility-types/dist/mapped-types"
 
-const withStaticQuery = <Q extends any>(query: any) => <
-  P extends P2,
-  P2 extends object
->(
-  Component: ComponentType<P>,
-  mapDataToProps: (data: Q) => P2
-): ComponentType<Subtract<P, P2>> => props => {
-  const data = useStaticQuery<any>(query)
-  return <Component {...(props as P)} {...mapDataToProps(data)} />
-}
-
 const _Logo = (props: PropsWithChildren<{}>) => (
   <Link
     style={{
@@ -29,7 +18,7 @@ const _Logo = (props: PropsWithChildren<{}>) => (
 const Logo = () => (
   <StaticQuery
     query={graphql`
-      {
+      query GetSiteTitle {
         site {
           siteMetadata {
             title

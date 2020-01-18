@@ -11,6 +11,22 @@ module.exports = {
   },
   plugins: [
     `gatsby-plugin-typescript`,
+
+    {
+      resolve: `gatsby-plugin-prefetch-google-fonts`,
+      options: {
+        fonts: [
+          {
+            family: `Merriweather`,
+            variants: [`400`, `700`],
+          },
+          {
+            family: `Montserrat`,
+            variants: [`500`, `900`],
+          },
+        ],
+      },
+    },
     `gatsby-plugin-netlify-cms`,
     `gatsby-plugin-styled-components`,
     `gatsby-transformer-sharp`,
@@ -88,5 +104,13 @@ module.exports = {
       },
     },
     `gatsby-plugin-remove-trailing-slashes`,
+    `gatsby-plugin-extract-schema`,
+    {
+      // https://github.com/daugsbi/gatsby-plugin-codegen
+      resolve: "gatsby-plugin-codegen",
+      options: {
+        localSchemaFile: "./schema.json",
+      },
+    },
   ],
 }

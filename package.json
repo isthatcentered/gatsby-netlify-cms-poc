@@ -51,10 +51,16 @@
     "@types/node": "^13.1.6",
     "@types/react": "^16.9.17",
     "@types/react-dom": "^16.9.4",
+    "@types/react-helmet": "^5.0.15",
+    "gatsby-plugin-codegen": "^1.0.14",
+    "gatsby-plugin-extract-schema": "^0.0.5",
+    "gatsby-plugin-prefetch-google-fonts": "^1.4.3",
     "gatsby-plugin-remove-trailing-slashes": "^2.1.20",
+    "gatsby-plugin-ts": "^2.1.1",
     "gatsby-plugin-typescript": "^2.1.26",
     "prettier": "^1.17.0",
-    "tailwindcss": "^1.1.4"
+    "tailwindcss": "^1.1.4",
+    "typescript": "^3.7.5"
   },
   "homepage": "https://github.com/gatsbyjs/gatsby-starter-blog#readme",
   "keywords": [
