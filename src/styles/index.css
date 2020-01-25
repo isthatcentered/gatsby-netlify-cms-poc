@@ -7,3 +7,6 @@
 .sharpen {
   border: 1px solid rgba(0, 0, 0, 0.04);
 }
+body {
+  scroll-behavior: smooth;
+}

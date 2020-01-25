@@ -1,8 +1,7 @@
-import React, { PropsWithChildren } from "react"
+import React, { PropsWithChildren, useEffect } from "react"
 import { graphql, Link, StaticQuery } from "gatsby"
 import { Container, StylePropsWithChildren } from "../pages"
 import cn from "classnames"
-
 const _Logo = (props: PropsWithChildren<{}>) => (
   <Link
     style={{
@@ -31,7 +30,10 @@ const Logo = () => (
 )
 
 export const Navbar = (props: StylePropsWithChildren<{}>) => (
-  <div {...props} className={cn(props.className, "Navbar px-16 h-32 flex items-center")}>
+  <div
+    {...props}
+    className={cn(props.className, "Navbar px-16 h-32 flex items-center")}
+  >
     <button className="text-2xl font-serif">Menu</button>
     {/*<Logo />*/}
   </div>
@@ -51,14 +53,16 @@ const Footer = () => (
   </footer>
 )
 
-const Layout = (props: PropsWithChildren<{}>) => (
-  <div className="min-h-screen flex flex-col bg-background-100 font-sans text-primary-900">
-    <Header />
-    <Container>
+const Layout = (props: PropsWithChildren<{}>) => {
+  if (window) require("smooth-scroll")('a[href*="#"]')
+
+  return (
+    <div className="min-h-screen flex flex-col font-sans">
+      <Header />
       <main>{props.children}</main>
-    </Container>
-    <Footer />
-  </div>
-)
+      <Footer />
+    </div>
+  )
+}
 
 export default Layout
