@@ -10,7 +10,6 @@ jobs:
     name: Build App
     runs-on: [ubuntu-latest]
     steps:
-      - run: node -v
       - name: Import commit files
         uses: actions/checkout@master
       - name: Get yarn cache # https://github.com/actions/cache/blob/master/examples.md#node---yarn
@@ -51,7 +50,6 @@ jobs:
           user: ${{ secrets.FTP_USER }} # Ftp user Ex:
           password: ${{ secrets.FTP_PASSWORD }} # Ftp password Ex:
           host: ${{ secrets.FTP_HOST }} # Ftp host Ex:
-          port: ${{ secrets.FTP_PORT }} # (optional) FTP port, defaults to 21
           path: dist # Folder to deploy Ex: apps/frontend/dist or dist
-          into: web # Where to place the files in your ftp
+          into: test-subdomain/dev # Where to place the files in your ftp
           cleanupExisting: true # (Optional), Remove already existing files inside FTP destinat
