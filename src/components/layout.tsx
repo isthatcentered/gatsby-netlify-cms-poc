@@ -54,7 +54,7 @@ const Footer = () => (
 )
 
 const Layout = (props: PropsWithChildren<{}>) => {
-  if (window) require("smooth-scroll")('a[href*="#"]')
+  if (typeof window !== "undefined") require("smooth-scroll")('a[href*="#"]')
 
   return (
     <div className="min-h-screen flex flex-col font-sans">
