@@ -1,7 +1,7 @@
-import React, { ComponentType, PropsWithChildren } from "react"
-import { graphql, Link, StaticQuery, useStaticQuery } from "gatsby"
+import React, { PropsWithChildren } from "react"
+import { graphql, Link, StaticQuery } from "gatsby"
+import { Container, StylePropsWithChildren } from "../pages"
 import cn from "classnames"
-import { Subtract } from "utility-types/dist/mapped-types"
 
 const _Logo = (props: PropsWithChildren<{}>) => (
   <Link
@@ -30,9 +30,16 @@ const Logo = () => (
   />
 )
 
+export const Navbar = (props: StylePropsWithChildren<{}>) => (
+  <div {...props} className={cn(props.className, "Navbar px-16 h-32 flex items-center")}>
+    <button className="text-2xl font-serif">Menu</button>
+    {/*<Logo />*/}
+  </div>
+)
+
 const Header = () => (
   <header>
-    <Logo />
+    <Navbar />
   </header>
 )
 
@@ -44,17 +51,10 @@ const Footer = () => (
   </footer>
 )
 
-const Container = (props: PropsWithChildren<{ className?: string }>) => (
-  <div
-    {...props}
-    className={cn("flex-1 mx-auto px-4 max-w-5xl", props.className)}
-  />
-)
-
 const Layout = (props: PropsWithChildren<{}>) => (
-  <div className="min-h-screen flex flex-col">
+  <div className="min-h-screen flex flex-col bg-background-100 font-sans text-primary-900">
+    <Header />
     <Container>
-      <Header />
       <main>{props.children}</main>
     </Container>
     <Footer />

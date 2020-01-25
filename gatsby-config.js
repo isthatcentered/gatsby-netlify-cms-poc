@@ -17,12 +17,12 @@ module.exports = {
       options: {
         fonts: [
           {
-            family: `Merriweather`,
-            variants: [`400`, `700`],
+            family: `Gelasio`,
+            variants: [`500`],
           },
           {
-            family: `Montserrat`,
-            variants: [`500`, `900`],
+            family: `Open Sans`,
+            variants: [`400`, `600`],
           },
         ],
       },
@@ -97,12 +97,12 @@ module.exports = {
         icon: `content/assets/gatsby-icon.png`,
       },
     },
-    {
-      resolve: `gatsby-plugin-typography`,
-      options: {
-        pathToConfigModule: `src/utils/typography`,
-      },
-    },
+    // {
+    //   resolve: `gatsby-plugin-typography`,
+    //   options: {
+    //     pathToConfigModule: `src/utils/typography`,
+    //   },
+    // },
     `gatsby-plugin-remove-trailing-slashes`,
     `gatsby-plugin-extract-schema`,
     {
@@ -110,6 +110,12 @@ module.exports = {
       resolve: "gatsby-plugin-codegen",
       options: {
         localSchemaFile: "./schema.json",
+      },
+    },
+    {
+      resolve: `gatsby-theme-tailwindcss`,
+      options: {
+        postCssPlugins: [require("autoprefixer")],
       },
     },
   ],

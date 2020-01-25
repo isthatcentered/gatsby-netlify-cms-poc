@@ -1,0 +1,9 @@
+@tailwind base;
+
+@tailwind components;
+
+@tailwind utilities;
+
+.sharpen {
+  border: 1px solid rgba(0, 0, 0, 0.04);
+}
