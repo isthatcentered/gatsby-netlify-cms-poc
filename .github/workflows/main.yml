@@ -1,8 +1,8 @@
 name: Deploy preview
 
-on: 
+on:
   push:
-    branches: 
+    branches:
       - dev
 
 jobs:
@@ -10,6 +10,7 @@ jobs:
     name: Build App
     runs-on: [ubuntu-latest]
     steps:
+      - run: node -v
       - name: Import commit files
         uses: actions/checkout@master
       - name: Get yarn cache # https://github.com/actions/cache/blob/master/examples.md#node---yarn
