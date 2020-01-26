@@ -1,7 +1,8 @@
 import React, { PropsWithChildren, useEffect } from "react"
 import { graphql, Link, StaticQuery } from "gatsby"
-import { Container, StylePropsWithChildren } from "../pages"
 import cn from "classnames"
+import { Container, StylePropsWithChildren } from "./grid"
+
 const _Logo = (props: PropsWithChildren<{}>) => (
   <Link
     style={{

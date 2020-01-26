@@ -1,44 +1,16 @@
-import React, { CSSProperties, PropsWithChildren, ReactNode } from "react"
+import React from "react"
 import { Link } from "gatsby"
 import Layout from "../components/layout"
 import SEO from "../components/seo"
 import cn from "classnames"
-
-export type StyleProps<T> = {
-  className?: string
-  style?: CSSProperties
-} & T
-
-export type StylePropsWithChildren<T> = StyleProps<
-  {
-    children?: ReactNode
-  } & T
->
-
-export const Container = (props: StylePropsWithChildren<{}>) => (
-  <div
-    {...props}
-    className={cn(
-      props.className,
-      "Container flex-1 mx-auto px-4 max-w-5xl px-4"
-    )}
-  />
-)
-
-export const Row = (props: StylePropsWithChildren<{ id?: string }>) => (
-  <div {...props} className={cn(props.className, "Row -mx-4 flex")} />
-)
-
-export const Col = (props: StylePropsWithChildren<{}>) => (
-  <div {...props} className={cn(props.className, "Col px-4")} />
-)
-
-export const Media = (props: StylePropsWithChildren<{}>) => (
-  <div {...props} className={cn(props.className, "Media flex items-start")} />
-)
-Media.Body = (props: StylePropsWithChildren<{}>) => (
-  <div {...props} className={cn(props.className, "MediaBody flex-1")} />
-)
+import {
+  Col,
+  Container,
+  Media,
+  Row,
+  StyleProps,
+  StylePropsWithChildren,
+} from "../components/grid"
 
 const Card = (
   props: StyleProps<{
@@ -46,12 +18,12 @@ const Card = (
     image: string
     excerpt: string
     color: string
-    link: string
+    link: { path: string; label: string }
   }>
 ) => {
   return (
     <Link
-      to={props.link}
+      to={props.link.path}
       data-scroll
       className={cn(
         props.className,
@@ -132,7 +104,7 @@ const cards = [
     // color: "#dce9f2",
     color: "#e8eff1",
     image: "mal-etre.png",
-    link: "/#mal-etre",
+    link: { path: "/#mal-etre", label: "Apprendre à mieux vivre" },
   },
   {
     title: "Souffrance au travail",
@@ -140,7 +112,7 @@ const cards = [
     // color: "#faead6",
     color: "#fadcd8",
     image: "sante-au-travail.png",
-    link: "/#souffrance-au-travail",
+    link: { path: "/#mal-etre", label: "Retrouver le goût d'aller au travail" },
   },
   {
     title: "Epreuves de la vie",
@@ -148,11 +120,11 @@ const cards = [
     // color: "#c5e3c1",
     color: "#f7f6f6",
     image: "epreuves-de-la-vie.png",
-    link: "/#epreuves-de-la-vie",
+    link: { path: "/#mal-etre", label: "Apprendre à mieux vivre" },
   },
 ]
 
-const HomePage = () => (
+const _HomePage = () => (
   <Layout>
     <SEO title="Home" description="" meta={[]} />
 
@@ -407,6 +379,160 @@ const HomePage = () => (
     {/*    </Col>*/}
     {/*  </Row>*/}
     {/*</HomePageSection>*/}
+  </Layout>
+)
+
+const Card2 = (
+  props: StyleProps<{
+    title: string
+    image: string
+    excerpt: string
+    color: string
+    link: { path: string; label: string }
+  }>
+) => {
+  return (
+    <article
+      className={cn(props.className, "Card block px-4 py-6 text-center")}
+      style={{ ...props.style, background: props.color }}
+    >
+      <img src={props.image} alt={props.title} />
+      <h3
+        className="font-serif text-xl text-xl mb-2"
+        style={{
+          lineHeight: 1.2,
+          letterSpacing: "0.06em",
+        }}
+      >
+        {props.title}
+      </h3>
+      <p className="text-sm mt-auto">{props.excerpt}</p>
+      <Link to={props.link.path}>{props.link.label}</Link>
+    </article>
+  )
+}
+
+const HomePage = () => (
+  <Layout>
+    <SEO title="Home" description="" meta={[]} />
+
+    <header className="pt-20 pb-12">
+      <Container>
+        <Row>
+          <Col className="w-23 flex">
+            <Media>
+              <img
+                className="mt-6 mr-4 w-24 h-24 object-cover rounded-full border-2 border-gray-400"
+                src="jean-jacques-penin-psychologue-sur-angers.png"
+                alt=""
+              />
+              <Media.Body>
+                <p className="text-sm block font-sans font-bold mb-1 ">
+                  Jean Jacques Penin
+                </p>
+                <h1
+                  className="font-serif text-4xl"
+                  style={{
+                    lineHeight: 1.4,
+                    letterSpacing: "0.07em",
+                  }}
+                >
+                  Pyschologue Du Travail, <br />
+                  Psychologue Clinicien
+                  <span
+                    className="text-base block font-sans font-bold mt-4"
+                    style={{ letterSpacing: "normal" }}
+                  >
+                    Sur Angers et Saint Melaine sur Aubance
+                  </span>
+                </h1>
+              </Media.Body>
+            </Media>
+          </Col>
+        </Row>
+      </Container>
+    </header>
+    <main>
+      <section>
+        <Container className="flex">
+          <h2 className="sr-only">Pouquoi consulter ?</h2>
+          {cards.map(card => (
+            <Card2 className="w-1/3 flex-1" {...card} key={card.title} />
+          ))}
+        </Container>
+      </section>
+      <section>
+        <Container className="flex">
+          <div className="w-2/3 px-8">
+            <h2>À Votre Écoute</h2>
+            Afin d’intervenir à différents niveaux, je mobilise des approches
+            complémentaires. La parole, l’EFT qui travaille sur la dimension
+            émotionnelle, la PNL qui s’intéresse à la mobilisation des capacités
+            ainsi que les méthodes du coaching qui permettent de convenir des
+            objectifs et des moyens de les atteindre. Si votre motivation est de
+            retrouver l'énergie, le courage, le plaisir de vivre, alors
+            travaillons ensemble à atteindre ce but.
+          </div>
+          <div className="w-1/3 pl-0">
+            <img
+              src="jean-jacques-penin-psychologue-sur-angers-photo-profile.jpg"
+              alt=""
+            />
+          </div>
+        </Container>
+      </section>
+    </main>
+    <footer>
+      <h2 className="sr-only">Informations complémentaires</h2>
+      <Container>
+        <Row>
+          <Col className="w-1/4">
+            <h3>Prendre Rendez-Vous</h3>
+            Tel: 06 52 38 21 73 Email: jjpenin@hotmail.fr Angers: 8 ter, rue
+            Béclard Saint Melaine/Aubance: 8 rue des prés hauts
+          </Col>
+          <Col className="w-1/4">
+            <h3>Horaires</h3> Lundi - Vendredi: 08h - 20h Samedi: 08h - 13h{" "}
+            <h3>Tarifs</h3>
+            Une séance 60€
+          </Col>
+          <Col className="w-1/4">
+            <h3>Liens utiles</h3>
+            <ul>
+              <li>
+                <Link to="/">Accueil</Link>
+              </li>
+              <li>
+                <Link to="/">Mal être</Link>
+              </li>
+              <li>
+                <Link to="/">Santé au travail</Link>
+              </li>
+              <li>
+                <Link to="/">Épreuves de la vie</Link>
+              </li>
+              <li>
+                <Link to="/">EFT/PNL/Coaching</Link>
+              </li>
+              <li>
+                <Link to="/">Votre psychologue</Link>
+              </li>
+            </ul>
+          </Col>
+          <Col className="w-1/4">
+            <Link to="/">Poser une question</Link>
+          </Col>
+        </Row>
+        <Row>
+          <Col>
+            <p>
+              © Jean Jacques Penin, Psychologue sur Angers et Saint Melaine sur
+              Aubance
+            </p>
+          </Col>
+        </Row>
+      </Container>
+    </footer>
   </Layout>
 )
 
