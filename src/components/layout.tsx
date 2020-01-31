@@ -35,7 +35,7 @@ const Logo = (props: StyleProps) => (
           <img
             alt="Photo de Jean Jacques Penin, psychologue du travail sur Angers et Saint Melaine sur Aubance"
             className="self-center mr-4 w-10 h-10 object-cover rounded-full"
-            src="jean-jacques-penin-psychologue-sur-angers.png"
+            src="jean-jacques-penin-psychologue-sur-angers-visage.png"
           />
           <Media.Body className="self-center">
             <span className="text-sm font-bold">Jean-Jacques Penin</span>
