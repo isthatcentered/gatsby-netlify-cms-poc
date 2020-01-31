@@ -26,7 +26,10 @@ export const Col = (props: StylePropsWithChildren<{}>) => (
   <div {...props} className={cn(props.className, "Col px-4")} />
 )
 export const Media = (props: StylePropsWithChildren<{}>) => (
-  <div {...props} className={cn(props.className, "Media flex items-start w-full")} />
+  <div
+    {...props}
+    className={cn(props.className, "Media flex items-start w-full")}
+  />
 )
 Media.Body = (props: StylePropsWithChildren<{}>) => (
   <div {...props} className={cn(props.className, "MediaBody flex-1")} />

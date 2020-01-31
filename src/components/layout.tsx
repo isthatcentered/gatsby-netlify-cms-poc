@@ -10,7 +10,6 @@ import {
   StylePropsWithChildren,
 } from "./grid"
 import { GetSiteTitle } from "./__generated__/GetSiteTitle"
-import classNames from "classnames"
 
 const Logo = (props: StyleProps) => (
   <StaticQuery<GetSiteTitle>
@@ -57,7 +56,7 @@ export const Navbar = (props: StylePropsWithChildren<{}>) => (
   >
     <button className="">Menu</button>
     <Logo className="mx-auto" />
-    <Link to="/contact">Contact</Link>
+    <Link to="/contact">Tarifs & Contact</Link>
   </div>
 )
 
@@ -81,12 +80,12 @@ const Footer = () => (
   <footer>
     <h2 className="sr-only">Informations complémentaires</h2>
     <Container>
-      <Row>
-        <Col className="w-full pt-8 text-center">
-          <Link to="/">Poser une question</Link>
-        </Col>
-      </Row>
-      <Row className="pt-16 pb-8">
+      {/*<Row>*/}
+      {/*  <Col className="w-full pt-8 text-center">*/}
+      {/*    <Link to="/">Poser une question</Link>*/}
+      {/*  </Col>*/}
+      {/*</Row>*/}
+      <Row className="pt-16 pb-4">
         <Col className="w-1/4">
           <h3 className="font-bold mb-4 text-xl">Contact</h3>
           <p className="mb-4">
