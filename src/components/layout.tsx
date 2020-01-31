@@ -35,7 +35,7 @@ const Logo = (props: StyleProps) => (
           <img
             alt="Photo de Jean Jacques Penin, psychologue du travail sur Angers et Saint Melaine sur Aubance"
             className="self-center mr-4 w-10 h-10 object-cover rounded-full"
-            src="jean-jacques-penin-psychologue-sur-angers-visage.png"
+            src="/jean-jacques-penin-psychologue-sur-angers-visage.png"
           />
           <Media.Body className="self-center">
             <span className="text-sm font-bold">Jean-Jacques Penin</span>
@@ -70,7 +70,7 @@ const footerLinks = [
   { label: "", path: "" },
   { label: "Accueil", path: "/" },
   { label: "Mal être", path: "/" },
-  { label: "Santé au travail", path: "/" },
+  { label: "Souffrance au travail", path: "/" },
   { label: "Épreuves de la vie", path: "/" },
   { label: "EFT/PNL/Coaching", path: "/" },
   { label: "Votre psychologue", path: "/" },
@@ -151,16 +151,12 @@ const Footer = () => (
   </footer>
 )
 
-const Layout = (props: PropsWithChildren<{}>) => {
-  if (typeof window !== "undefined") require("smooth-scroll")('a[href*="#"]')
-
-  return (
-    <div className="min-h-screen flex flex-col font-sans">
-      <Header />
-      <main>{props.children}</main>
-      <Footer />
-    </div>
-  )
-}
+const Layout = (props: PropsWithChildren<{}>) => (
+  <div className="min-h-screen flex flex-col font-sans">
+    <Header />
+    <main>{props.children}</main>
+    <Footer />
+  </div>
+)
 
 export default Layout

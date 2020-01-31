@@ -51,10 +51,7 @@ const MainEntries = (props: StyleProps<{ cards: typeof cards }>) => (
 const QuickLinksBanner = (props: StyleProps<{ links: Goto[] }>) => (
   <div
     style={props.style}
-    className={cn(
-      "px-12 py-4 flex w-full items-center",
-      props.className
-    )}
+    className={cn("px-12 py-4 flex w-full items-center", props.className)}
   >
     <Media>
       <Media.Body className="self-center flex-grow">
@@ -93,7 +90,7 @@ const cards = [
         "Vous êtes déprimé ? Vous manquez de confiance en vous ? Peut être vous battez-vous contre une anxiété permanente ? Vous voulez reprendre votre vie en main ? Vous rêvez d'une vie plus simple ?",
       color: yellow,
       image: "mal-etre.png",
-      link: { path: "/#mal-etre", label: "Apprendre à mieux vivre" },
+      link: { path: "/mal-etre", label: "Apprendre à mieux vivre" },
     },
     {
       title: "Souffrance au travail",
@@ -102,7 +99,7 @@ const cards = [
       color: red,
       image: "sante-au-travail.png",
       link: {
-        path: "/#mal-etre",
+        path: "/souffrance-au-travail",
         label: "Retrouver le goût d'aller au travail",
       },
     },
@@ -144,7 +141,7 @@ const HomePage = () => (
                 letterSpacing: "0.07em",
               }}
             >
-              Pyschologue Du Travail, <br />
+              Psychologue du Travail, <br />
               Psychologue Clinicien
               <span
                 className="text-base block font-normal text-gray-600 mt-2"

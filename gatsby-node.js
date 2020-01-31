@@ -18,13 +18,49 @@ exports.onCreateNode = ({ node, actions, getNode }) => {
   }
 }
 
-exports.createPages = ({ graphql, actions }) => {
-  const { createPage } = actions
+const createContentType = (templatePath, prefix, query, name) => (
+  createPage,
+  graphql,
+  reporter
+) => {
+  const blogPost = path.resolve(templatePath)
 
-  const blogPost = path.resolve(`./src/templates/blog-post.js`)
-  return graphql(
-    `
-      {
+  return graphql(query).then(result => {
+    if (result.errors) {
+      reporter.panic(result.errors)
+    }
+
+    // Create blog posts pages.
+    const posts = result.data.allMdx.edges
+
+    posts
+      .filter(({ node }) => node.parent.sourceInstanceName === name)
+      .forEach((post, index) => {
+        const previous =
+          index === posts.length - 1 ? null : posts[index + 1].node
+        const next = index === 0 ? null : posts[index - 1].node
+        const slug = post.node.fields.slug // /test-blog-post
+
+        createPage({
+          path: `${prefix}${slug}`, // blog/test-blog-post
+          component: blogPost,
+          context: {
+            slug,
+            previous,
+            next,
+          },
+        })
+      })
+
+    return null
+  })
+}
+
+const createBlogPosts = createContentType(
+  `./src/templates/blog-post.js`,
+  "blog",
+  `
+      query GetAllBlogPosts{
         allMdx(
           sort: { fields: [frontmatter___date], order: DESC }
           limit: 1000
@@ -37,35 +73,56 @@ exports.createPages = ({ graphql, actions }) => {
               frontmatter {
                 title
               }
+              parent {
+                ... on File {
+                  id
+                  name
+                  sourceInstanceName
+                }
+              }
             }
           }
         }
       }
-    `
-  ).then(result => {
-    if (result.errors) {
-      throw result.errors
-    }
+    `,
+  "blog"
+)
 
-    // Create blog posts pages.
-    const posts = result.data.allMdx.edges
+const createContentPages = createContentType(
+  `./src/templates/page.js`,
+  "",
+  `
+      query GetAllPages{
+        allMdx(
+          sort: { fields: [frontmatter___date], order: DESC }
+          limit: 1000
+        ) {
+          edges {
+            node {
+              fields {
+                slug
+              }
+              frontmatter {
+                title
+              }
+              parent {
+                ... on File {
+                  id
+                  name
+                  sourceInstanceName
+                }
+              }
+            }
+          }
+        }
+      }
+    `,
+  "page"
+)
 
-    posts.forEach((post, index) => {
-      const previous = index === posts.length - 1 ? null : posts[index + 1].node
-      const next = index === 0 ? null : posts[index - 1].node
-      const slug = post.node.fields.slug // /test-blog-post
+exports.createPages =async ({ graphql, actions, reporter }) => {
+  const { createPage } = actions
 
-      createPage({
-        path: `blog${slug}`, // blog/test-blog-post
-        component: blogPost,
-        context: {
-          slug,
-          previous,
-          next,
-        },
-      })
-    })
-
-    return null
-  })
+  await  createContentPages(createPage, graphql, reporter)
+  await  createBlogPosts(createPage, graphql, reporter)
 }

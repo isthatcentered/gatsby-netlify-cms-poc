@@ -12169,6 +12169,140 @@
                 "ofType": null
               },
               "defaultValue": null
+            },
+            {
+              "name": "previous",
+              "description": "",
+              "type": {
+                "kind": "INPUT_OBJECT",
+                "name": "SitePageContextPreviousFilterInput",
+                "ofType": null
+              },
+              "defaultValue": null
+            }
+          ],
+          "interfaces": null,
+          "enumValues": null,
+          "possibleTypes": null
+        },
+        {
+          "kind": "INPUT_OBJECT",
+          "name": "SitePageContextPreviousFilterInput",
+          "description": null,
+          "fields": null,
+          "inputFields": [
+            {
+              "name": "fields",
+              "description": "",
+              "type": {
+                "kind": "INPUT_OBJECT",
+                "name": "SitePageContextPreviousFieldsFilterInput",
+                "ofType": null
+              },
+              "defaultValue": null
+            },
+            {
+              "name": "frontmatter",
+              "description": "",
+              "type": {
+                "kind": "INPUT_OBJECT",
+                "name": "SitePageContextPreviousFrontmatterFilterInput",
+                "ofType": null
+              },
+              "defaultValue": null
+            },
+            {
+              "name": "parent",
+              "description": "",
+              "type": {
+                "kind": "INPUT_OBJECT",
+                "name": "SitePageContextPreviousParentFilterInput",
+                "ofType": null
+              },
+              "defaultValue": null
+            }
+          ],
+          "interfaces": null,
+          "enumValues": null,
+          "possibleTypes": null
+        },
+        {
+          "kind": "INPUT_OBJECT",
+          "name": "SitePageContextPreviousFieldsFilterInput",
+          "description": null,
+          "fields": null,
+          "inputFields": [
+            {
+              "name": "slug",
+              "description": "",
+              "type": {
+                "kind": "INPUT_OBJECT",
+                "name": "StringQueryOperatorInput",
+                "ofType": null
+              },
+              "defaultValue": null
+            }
+          ],
+          "interfaces": null,
+          "enumValues": null,
+          "possibleTypes": null
+        },
+        {
+          "kind": "INPUT_OBJECT",
+          "name": "SitePageContextPreviousFrontmatterFilterInput",
+          "description": null,
+          "fields": null,
+          "inputFields": [
+            {
+              "name": "title",
+              "description": "",
+              "type": {
+                "kind": "INPUT_OBJECT",
+                "name": "StringQueryOperatorInput",
+                "ofType": null
+              },
+              "defaultValue": null
+            }
+          ],
+          "interfaces": null,
+          "enumValues": null,
+          "possibleTypes": null
+        },
+        {
+          "kind": "INPUT_OBJECT",
+          "name": "SitePageContextPreviousParentFilterInput",
+          "description": null,
+          "fields": null,
+          "inputFields": [
+            {
+              "name": "id",
+              "description": "",
+              "type": {
+                "kind": "INPUT_OBJECT",
+                "name": "StringQueryOperatorInput",
+                "ofType": null
+              },
+              "defaultValue": null
+            },
+            {
+              "name": "name",
+              "description": "",
+              "type": {
+                "kind": "INPUT_OBJECT",
+                "name": "StringQueryOperatorInput",
+                "ofType": null
+              },
+              "defaultValue": null
+            },
+            {
+              "name": "sourceInstanceName",
+              "description": "",
+              "type": {
+                "kind": "INPUT_OBJECT",
+                "name": "StringQueryOperatorInput",
+                "ofType": null
+              },
+              "defaultValue": null
             }
           ],
           "interfaces": null,
@@ -13109,6 +13243,158 @@
           "fields": [
             {
               "name": "slug",
+              "description": null,
+              "args": [],
+              "type": {
+                "kind": "SCALAR",
+                "name": "String",
+                "ofType": null
+              },
+              "isDeprecated": false,
+              "deprecationReason": null
+            },
+            {
+              "name": "previous",
+              "description": null,
+              "args": [],
+              "type": {
+                "kind": "OBJECT",
+                "name": "SitePageContextPrevious",
+                "ofType": null
+              },
+              "isDeprecated": false,
+              "deprecationReason": null
+            }
+          ],
+          "inputFields": null,
+          "interfaces": [],
+          "enumValues": null,
+          "possibleTypes": null
+        },
+        {
+          "kind": "OBJECT",
+          "name": "SitePageContextPrevious",
+          "description": null,
+          "fields": [
+            {
+              "name": "fields",
+              "description": null,
+              "args": [],
+              "type": {
+                "kind": "OBJECT",
+                "name": "SitePageContextPreviousFields",
+                "ofType": null
+              },
+              "isDeprecated": false,
+              "deprecationReason": null
+            },
+            {
+              "name": "frontmatter",
+              "description": null,
+              "args": [],
+              "type": {
+                "kind": "OBJECT",
+                "name": "SitePageContextPreviousFrontmatter",
+                "ofType": null
+              },
+              "isDeprecated": false,
+              "deprecationReason": null
+            },
+            {
+              "name": "parent",
+              "description": null,
+              "args": [],
+              "type": {
+                "kind": "OBJECT",
+                "name": "SitePageContextPreviousParent",
+                "ofType": null
+              },
+              "isDeprecated": false,
+              "deprecationReason": null
+            }
+          ],
+          "inputFields": null,
+          "interfaces": [],
+          "enumValues": null,
+          "possibleTypes": null
+        },
+        {
+          "kind": "OBJECT",
+          "name": "SitePageContextPreviousFields",
+          "description": null,
+          "fields": [
+            {
+              "name": "slug",
+              "description": null,
+              "args": [],
+              "type": {
+                "kind": "SCALAR",
+                "name": "String",
+                "ofType": null
+              },
+              "isDeprecated": false,
+              "deprecationReason": null
+            }
+          ],
+          "inputFields": null,
+          "interfaces": [],
+          "enumValues": null,
+          "possibleTypes": null
+        },
+        {
+          "kind": "OBJECT",
+          "name": "SitePageContextPreviousFrontmatter",
+          "description": null,
+          "fields": [
+            {
+              "name": "title",
+              "description": null,
+              "args": [],
+              "type": {
+                "kind": "SCALAR",
+                "name": "String",
+                "ofType": null
+              },
+              "isDeprecated": false,
+              "deprecationReason": null
+            }
+          ],
+          "inputFields": null,
+          "interfaces": [],
+          "enumValues": null,
+          "possibleTypes": null
+        },
+        {
+          "kind": "OBJECT",
+          "name": "SitePageContextPreviousParent",
+          "description": null,
+          "fields": [
+            {
+              "name": "id",
+              "description": null,
+              "args": [],
+              "type": {
+                "kind": "SCALAR",
+                "name": "String",
+                "ofType": null
+              },
+              "isDeprecated": false,
+              "deprecationReason": null
+            },
+            {
+              "name": "name",
+              "description": null,
+              "args": [],
+              "type": {
+                "kind": "SCALAR",
+                "name": "String",
+                "ofType": null
+              },
+              "isDeprecated": false,
+              "deprecationReason": null
+            },
+            {
+              "name": "sourceInstanceName",
               "description": null,
               "args": [],
               "type": {
@@ -14666,6 +14952,36 @@
             },
             {
               "name": "context___slug",
+              "description": null,
+              "isDeprecated": false,
+              "deprecationReason": null
+            },
+            {
+              "name": "context___previous___fields___slug",
+              "description": null,
+              "isDeprecated": false,
+              "deprecationReason": null
+            },
+            {
+              "name": "context___previous___frontmatter___title",
+              "description": null,
+              "isDeprecated": false,
+              "deprecationReason": null
+            },
+            {
+              "name": "context___previous___parent___id",
+              "description": null,
+              "isDeprecated": false,
+              "deprecationReason": null
+            },
+            {
+              "name": "context___previous___parent___name",
+              "description": null,
+              "isDeprecated": false,
+              "deprecationReason": null
+            },
+            {
+              "name": "context___previous___parent___sourceInstanceName",
               "description": null,
               "isDeprecated": false,
               "deprecationReason": null
