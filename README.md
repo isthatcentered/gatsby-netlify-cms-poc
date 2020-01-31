@@ -1,3 +1,5 @@
+![](https://github.com/isthatcentered/gatsby-netlify-cms-poc/workflows/Deploy%20preview/badge.svg)
+
 <!-- AUTO-GENERATED-CONTENT:START (STARTER) -->
 <p align="center">
   <a href="https://www.gatsbyjs.org">
