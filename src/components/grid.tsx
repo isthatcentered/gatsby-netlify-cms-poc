@@ -1,7 +1,7 @@
 import cn from "classnames"
 import React, { CSSProperties, ReactNode } from "react"
 
-export type StyleProps<T> = {
+export type StyleProps<T = {}> = {
   className?: string
   style?: CSSProperties
 } & T
@@ -15,7 +15,7 @@ export const Container = (props: StylePropsWithChildren<{}>) => (
     {...props}
     className={cn(
       props.className,
-      "Container flex-1 mx-auto px-4 max-w-5xl px-4"
+      "Container flex-1 mx-auto px-4 max-w-6xl px-4"
     )}
   />
 )
@@ -26,7 +26,7 @@ export const Col = (props: StylePropsWithChildren<{}>) => (
   <div {...props} className={cn(props.className, "Col px-4")} />
 )
 export const Media = (props: StylePropsWithChildren<{}>) => (
-  <div {...props} className={cn(props.className, "Media flex items-start")} />
+  <div {...props} className={cn(props.className, "Media flex items-start w-full")} />
 )
 Media.Body = (props: StylePropsWithChildren<{}>) => (
   <div {...props} className={cn(props.className, "MediaBody flex-1")} />

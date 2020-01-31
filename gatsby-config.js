@@ -1,12 +1,12 @@
 module.exports = {
   siteMetadata: {
     // edit below
-    title: `Gatsby Starter Personal Blogz`,
-    author: `Kyle Matthews`,
+    title: `Psychologue du travail, psychologue clinicien sur Angers et Saint Melaine sur Aubance`,
+    author: `Jean-Jacques Penin`,
     description: `A starter personal blog with styled components, dark mode, and Netlify CMS.`,
     siteUrl: `https://gatsby-starter-blog-demo.netlify.com/`,
     social: {
-      twitter: `kylemathews`,
+      // twitter: `kylemathews`,
     },
   },
   plugins: [

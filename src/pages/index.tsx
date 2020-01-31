@@ -100,24 +100,24 @@ const HomePageSection2 = (
 const cards = [
   {
     title: "Mal être",
-    excerpt: "Where we trust inuition and support it through science",
-    // color: "#dce9f2",
+    excerpt:
+      "Vous êtes déprimé ? Vous manquez de confiance en vous ? Peut être vous battez-vous contre une anxiété permanente ? Vous voulez reprendre votre vie en main ? Vous rêvez d'une vie plus simple ?",
     color: "#e8eff1",
     image: "mal-etre.png",
     link: { path: "/#mal-etre", label: "Apprendre à mieux vivre" },
   },
   {
     title: "Souffrance au travail",
-    excerpt: "Where we prioritise self-care and planet-care",
-    // color: "#faead6",
+    excerpt:
+      "Votre travail envahit toute votre pensée.. Peut être venez-vous de vivre un conflit professionnel ou êtes vous en perte d'emploi ? Peut être traversez-vous une profonde démotivation, êtes vous proche du burn-out ? Vous rêvez de mieux utiliser vos compétences et envisagez un changement ? Un nouveau challenge se présente et vous vous demandez comment le relever ?",
     color: "#fadcd8",
     image: "sante-au-travail.png",
     link: { path: "/#mal-etre", label: "Retrouver le goût d'aller au travail" },
   },
   {
     title: "Epreuves de la vie",
-    excerpt: "Where we go through the ABCs of CBD",
-    // color: "#c5e3c1",
+    excerpt:
+      "Votre vie de couple est en péril ? Vous faites face à une situation difficile avec vos enfants, vos parents ? Votre santé vous préoccupe ? Vous avez vécu un accident; un traumatisme ? Et vous aimeriez en parler pour vous libérer ?",
     color: "#f7f6f6",
     image: "epreuves-de-la-vie.png",
     link: { path: "/#mal-etre", label: "Apprendre à mieux vivre" },
@@ -396,9 +396,9 @@ const Card2 = (
       className={cn(props.className, "Card block px-4 py-6 text-center")}
       style={{ ...props.style, background: props.color }}
     >
-      <img src={props.image} alt={props.title} />
+      <img className="mb-4" src={props.image} alt={props.title} />
       <h3
-        className="font-serif text-xl text-xl mb-2"
+        className="font-bold text-2xl mb-4"
         style={{
           lineHeight: 1.2,
           letterSpacing: "0.06em",
@@ -406,8 +406,11 @@ const Card2 = (
       >
         {props.title}
       </h3>
-      <p className="text-sm mt-auto">{props.excerpt}</p>
-      <Link to={props.link.path}>{props.link.label}</Link>
+
+      {/*<p className="text-sm mt-auto">{props.excerpt}</p>*/}
+      <Link className="underline" to={props.link.path}>
+        {props.link.label}
+      </Link>
     </article>
   )
 }
@@ -415,63 +418,94 @@ const Card2 = (
 const HomePage = () => (
   <Layout>
     <SEO title="Home" description="" meta={[]} />
-
-    <header className="pt-20 pb-12">
+    <header className="pb-20 pt-8">
       <Container>
         <Row>
-          <Col className="w-23 flex">
-            <Media>
-              <img
-                className="mt-6 mr-4 w-24 h-24 object-cover rounded-full border-2 border-gray-400"
-                src="jean-jacques-penin-psychologue-sur-angers.png"
-                alt=""
-              />
-              <Media.Body>
-                <p className="text-sm block font-sans font-bold mb-1 ">
-                  Jean Jacques Penin
-                </p>
-                <h1
-                  className="font-serif text-4xl"
-                  style={{
-                    lineHeight: 1.4,
-                    letterSpacing: "0.07em",
-                  }}
-                >
-                  Pyschologue Du Travail, <br />
-                  Psychologue Clinicien
-                  <span
-                    className="text-base block font-sans font-bold mt-4"
-                    style={{ letterSpacing: "normal" }}
-                  >
-                    Sur Angers et Saint Melaine sur Aubance
-                  </span>
-                </h1>
-              </Media.Body>
-            </Media>
+          <Col className="w-full items-center flex flex-col">
+            <h1
+              className="font-bold text-4xl text-center"
+              style={{
+                lineHeight: 1.4,
+                letterSpacing: "0.07em",
+              }}
+            >
+              Pyschologue Du Travail, <br />
+              Psychologue Clinicien
+              <span
+                className="text-base block font-normal text-gray-600 mt-2"
+                style={{ letterSpacing: "normal" }}
+              >
+                Sur Angers et Saint Melaine sur Aubance
+              </span>
+            </h1>
           </Col>
         </Row>
       </Container>
     </header>
     <main>
-      <section>
-        <Container className="flex">
+      <Container>
+        <section className="flex">
           <h2 className="sr-only">Pouquoi consulter ?</h2>
           {cards.map(card => (
             <Card2 className="w-1/3 flex-1" {...card} key={card.title} />
           ))}
-        </Container>
-      </section>
-      <section>
-        <Container className="flex">
-          <div className="w-2/3 px-8">
-            <h2>À Votre Écoute</h2>
-            Afin d’intervenir à différents niveaux, je mobilise des approches
-            complémentaires. La parole, l’EFT qui travaille sur la dimension
-            émotionnelle, la PNL qui s’intéresse à la mobilisation des capacités
-            ainsi que les méthodes du coaching qui permettent de convenir des
-            objectifs et des moyens de les atteindre. Si votre motivation est de
-            retrouver l'énergie, le courage, le plaisir de vivre, alors
-            travaillons ensemble à atteindre ce but.
+        </section>
+        <section className="px-12 py-10 flex items-center">
+          <Media>
+            <Media.Body className="self-center flex-grow">
+              <h2 className="text-2xl font-bold">
+                Consultations sur Angers et Saint Melaine sur Aubance
+              </h2>
+            </Media.Body>
+            <div className="self-center">
+              <ul>
+                <li>
+                  <Link className="font-bold underline text-blue-700" to="/">
+                    Adresse
+                  </Link>
+                </li>
+                <li>
+                  <Link className="font-bold underline text-blue-700" to="/">
+                    Tarifs
+                  </Link>
+                </li>
+                <li>
+                  <Link className="font-bold underline text-blue-700" to="/">
+                    Prendre rendez-vous
+                  </Link>
+                </li>
+              </ul>
+            </div>
+          </Media>
+        </section>
+        <section className="flex">
+          <div
+            style={{ background: "#eceeee26" }}
+            className="w-2/3 p-8 pb-4 text-center flex flex-col justify-center items-center"
+          >
+            <div className="max-w-xl">
+              <h2 className="text-3xl mb-4 font-bold">À Votre Écoute</h2>
+              <p className="mb-4">
+                Afin d’intervenir à différents niveaux, je mobilise des
+                approches complémentaires.
+              </p>
+
+              <p className="mb-4">
+                La parole, l’EFT qui travaille sur la dimension émotionnelle, la
+                PNL qui s’intéresse à la mobilisation des capacités ainsi que
+                les méthodes du coaching qui permettent de convenir des
+                objectifs et des moyens de les atteindre.
+              </p>
+
+              <p className="mb-4">
+                Si votre motivation est de retrouver l'énergie, le courage, le
+                plaisir de vivre, alors{" "}
+                <Link className="text-blue-700 underline" to="/">
+                  travaillons ensemble à atteindre ce but
+                </Link>
+                .
+              </p>
+            </div>
           </div>
           <div className="w-1/3 pl-0">
             <img
@@ -479,60 +513,9 @@ const HomePage = () => (
               alt=""
             />
           </div>
-        </Container>
-      </section>
-    </main>
-    <footer>
-      <h2 className="sr-only">Informations complémentaires</h2>
-      <Container>
-        <Row>
-          <Col className="w-1/4">
-            <h3>Prendre Rendez-Vous</h3>
-            Tel: 06 52 38 21 73 Email: jjpenin@hotmail.fr Angers: 8 ter, rue
-            Béclard Saint Melaine/Aubance: 8 rue des prés hauts
-          </Col>
-          <Col className="w-1/4">
-            <h3>Horaires</h3> Lundi - Vendredi: 08h - 20h Samedi: 08h - 13h{" "}
-            <h3>Tarifs</h3>
-            Une séance 60€
-          </Col>
-          <Col className="w-1/4">
-            <h3>Liens utiles</h3>
-            <ul>
-              <li>
-                <Link to="/">Accueil</Link>
-              </li>
-              <li>
-                <Link to="/">Mal être</Link>
-              </li>
-              <li>
-                <Link to="/">Santé au travail</Link>
-              </li>
-              <li>
-                <Link to="/">Épreuves de la vie</Link>
-              </li>
-              <li>
-                <Link to="/">EFT/PNL/Coaching</Link>
-              </li>
-              <li>
-                <Link to="/">Votre psychologue</Link>
-              </li>
-            </ul>
-          </Col>
-          <Col className="w-1/4">
-            <Link to="/">Poser une question</Link>
-          </Col>
-        </Row>
-        <Row>
-          <Col>
-            <p>
-              © Jean Jacques Penin, Psychologue sur Angers et Saint Melaine sur
-              Aubance
-            </p>
-          </Col>
-        </Row>
+        </section>
       </Container>
-    </footer>
+    </main>
   </Layout>
 )
 
