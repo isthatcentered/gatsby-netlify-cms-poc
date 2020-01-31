@@ -1,9 +1,9 @@
 backend:
   name: github
   repo: isthatcentered/gatsby-netlify-cms-poc
-  branch: master # Branch to use
-  base_url: https://us-central1-netlify-cms-auth-4583c.cloudfunctions.net # The base URL for your Firebase Function
-  auth_endpoint: /oauth/auth # The path to the OAuth endpoint of the function
+#  branch: master # Branch to use
+#  base_url: https://us-central1-netlify-cms-auth-4583c.cloudfunctions.net # The base URL for your Firebase Function
+#  auth_endpoint: /oauth/auth # The path to the OAuth endpoint of the function
 
 media_folder: static/assets
 public_folder: assets
