@@ -4,46 +4,68 @@ const { createFilePath } = require(`gatsby-source-filesystem`)
 const removeTrailingPathSlash = path =>
   path === `/` ? path : path.replace(/\/$/, ``) // /test-blog-post/ -> /test-blog-post
 
-exports.onCreateNode = ({ node, actions, getNode }) => {
-  const { createNodeField } = actions
+exports.onCreateNode = ({ node, actions: { createNodeField }, getNode }) => {
+  if (node.internal.type !== `Mdx`) return
 
-  if (node.internal.type === `Mdx`) {
-    const value = removeTrailingPathSlash(createFilePath({ node, getNode }))
+  const value = removeTrailingPathSlash(createFilePath({ node, getNode }))
 
-    createNodeField({
-      name: `slug`,
-      node,
-      value,
-    })
-  }
+  createNodeField({
+    name: `slug`,
+    node,
+    value,
+  })
 }
 
-const createContentType = (templatePath, prefix, query, name) => (
-  createPage,
-  graphql,
-  reporter
-) => {
-  const blogPost = path.resolve(templatePath)
+const isGatsbyFilesystemSourceType = type => ({ node }) =>
+  node.parent.sourceInstanceName === type
 
-  return graphql(query).then(result => {
+const allMdxOrderedByDate = `
+    query GetAllMdxByDate{
+      allMdx(
+        sort: { fields: [frontmatter___date], order: DESC }
+        limit: 1000
+      ) {
+        edges {
+          node {
+            fields {
+              slug
+            }
+            frontmatter {
+              title
+            }
+            parent {
+              ... on File {
+                sourceInstanceName
+              }
+            }
+          }
+        }
+      }
+  }
+`
+
+const createMdxContentType = gatsbySourceFilesystemName => (
+  templatePath,
+  prefix
+) => (createPage, graphql, reporter) =>
+  graphql(allMdxOrderedByDate).then(result => {
     if (result.errors) {
       reporter.panic(result.errors)
     }
 
-    // Create blog posts pages.
-    const posts = result.data.allMdx.edges
+    const pages = result.data.allMdx.edges
 
-    posts
-      .filter(({ node }) => node.parent.sourceInstanceName === name)
+    pages
+      .filter(isGatsbyFilesystemSourceType(gatsbySourceFilesystemName))
       .forEach((post, index) => {
         const previous =
-          index === posts.length - 1 ? null : posts[index + 1].node
-        const next = index === 0 ? null : posts[index - 1].node
+          index === pages.length - 1 ? null : pages[index + 1].node
+        const next = index === 0 ? null : pages[index - 1].node
         const slug = post.node.fields.slug // /test-blog-post
 
         createPage({
           path: `${prefix}${slug}`, // blog/test-blog-post
-          component: blogPost,
+          component: path.resolve(templatePath),
           context: {
             slug,
             previous,
@@ -54,75 +76,22 @@ const createContentType = (templatePath, prefix, query, name) => (
 
     return null
   })
-}
 
-const createBlogPosts = createContentType(
+const createBlogPosts = createMdxContentType("blog")(
   `./src/templates/blog-post.js`,
-  "blog",
-  `
-      query GetAllBlogPosts{
-        allMdx(
-          sort: { fields: [frontmatter___date], order: DESC }
-          limit: 1000
-        ) {
-          edges {
-            node {
-              fields {
-                slug
-              }
-              frontmatter {
-                title
-              }
-              parent {
-                ... on File {
-                  id
-                  name
-                  sourceInstanceName
-                }
-              }
-            }
-          }
-        }
-      }
-    `,
   "blog"
 )
 
-const createContentPages = createContentType(
-  `./src/templates/page.js`,
-  "",
-  `
-      query GetAllPages{
-        allMdx(
-          sort: { fields: [frontmatter___date], order: DESC }
-          limit: 1000
-        ) {
-          edges {
-            node {
-              fields {
-                slug
-              }
-              frontmatter {
-                title
-              }
-              parent {
-                ... on File {
-                  id
-                  name
-                  sourceInstanceName
-                }
-              }
-            }
-          }
-        }
-      }
-    `,
-  "page"
+const createContentPages = createMdxContentType("page")(
+  `./src/templates/page.tsx`,
+  ""
 )
 
-exports.createPages =async ({ graphql, actions, reporter }) => {
+exports.createPages = async ({ graphql, actions, reporter }) => {
   const { createPage } = actions
 
-  await  createContentPages(createPage, graphql, reporter)
-  await  createBlogPosts(createPage, graphql, reporter)
+  await Promise.all([
+    createContentPages(createPage, graphql, reporter),
+    createBlogPosts(createPage, graphql, reporter),
+  ])
 }
