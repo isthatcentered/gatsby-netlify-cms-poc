@@ -1,5 +1,4 @@
 ---
-path: /mal-etre
 title: Mal être
 description: >-
   Manque de confiance en soi, difficultés à s'exprimer en public, hyper

@@ -7108,16 +7108,6 @@
               "defaultValue": null
             },
             {
-              "name": "path",
-              "description": "",
-              "type": {
-                "kind": "INPUT_OBJECT",
-                "name": "StringQueryOperatorInput",
-                "ofType": null
-              },
-              "defaultValue": null
-            },
-            {
               "name": "date",
               "description": "",
               "type": {
@@ -8448,18 +8438,6 @@
                   "name": "String",
                   "ofType": null
                 }
-              },
-              "isDeprecated": false,
-              "deprecationReason": null
-            },
-            {
-              "name": "path",
-              "description": null,
-              "args": [],
-              "type": {
-                "kind": "SCALAR",
-                "name": "String",
-                "ofType": null
               },
               "isDeprecated": false,
               "deprecationReason": null
@@ -9884,12 +9862,6 @@
               "deprecationReason": null
             },
             {
-              "name": "childMdx___frontmatter___path",
-              "description": null,
-              "isDeprecated": false,
-              "deprecationReason": null
-            },
-            {
               "name": "childMdx___frontmatter___date",
               "description": null,
               "isDeprecated": false,
@@ -11181,12 +11153,6 @@
               "deprecationReason": null
             },
             {
-              "name": "frontmatter___path",
-              "description": null,
-              "isDeprecated": false,
-              "deprecationReason": null
-            },
-            {
               "name": "frontmatter___date",
               "description": null,
               "isDeprecated": false,
@@ -12275,26 +12241,6 @@
           "fields": null,
           "inputFields": [
             {
-              "name": "id",
-              "description": "",
-              "type": {
-                "kind": "INPUT_OBJECT",
-                "name": "StringQueryOperatorInput",
-                "ofType": null
-              },
-              "defaultValue": null
-            },
-            {
-              "name": "name",
-              "description": "",
-              "type": {
-                "kind": "INPUT_OBJECT",
-                "name": "StringQueryOperatorInput",
-                "ofType": null
-              },
-              "defaultValue": null
-            },
-            {
               "name": "sourceInstanceName",
               "description": "",
               "type": {
@@ -13369,30 +13315,6 @@
           "name": "SitePageContextPreviousParent",
           "description": null,
           "fields": [
-            {
-              "name": "id",
-              "description": null,
-              "args": [],
-              "type": {
-                "kind": "SCALAR",
-                "name": "String",
-                "ofType": null
-              },
-              "isDeprecated": false,
-              "deprecationReason": null
-            },
-            {
-              "name": "name",
-              "description": null,
-              "args": [],
-              "type": {
-                "kind": "SCALAR",
-                "name": "String",
-                "ofType": null
-              },
-              "isDeprecated": false,
-              "deprecationReason": null
-            },
             {
               "name": "sourceInstanceName",
               "description": null,
@@ -14964,18 +14886,6 @@
             },
             {
               "name": "context___previous___frontmatter___title",
-              "description": null,
-              "isDeprecated": false,
-              "deprecationReason": null
-            },
-            {
-              "name": "context___previous___parent___id",
-              "description": null,
-              "isDeprecated": false,
-              "deprecationReason": null
-            },
-            {
-              "name": "context___previous___parent___name",
               "description": null,
               "isDeprecated": false,
               "deprecationReason": null

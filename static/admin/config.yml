@@ -14,7 +14,7 @@ collections:
     folder: content/blog
     create: true
     fields:
-      - { name: path, label: Path }
+#      - { name: path, label: Path }
       - { name: date, label: Date, widget: date }
       - { name: title, label: Title }
       - { name: description, label: Description }
@@ -31,7 +31,7 @@ collections:
     folder: content/pages
     create: true
     fields:
-      - { name: path, label: Path }
+#      - { name: path, label: Path }
       - { name: title, label: Title }
       - { name: description, label: Description }
       - { name: body, label: Body, widget: markdown }
