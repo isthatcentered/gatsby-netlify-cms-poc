@@ -6,6 +6,7 @@ import Layout from "../components/layout"
 import SEO from "../components/seo"
 import { PagesBySlug } from "./__generated__/PagesBySlug"
 import { SafeQuery } from "../queries"
+import { Col, Row } from "../components/grid"
 
 type PageInfos = {
   fields: { slug: string }
@@ -29,9 +30,21 @@ const ContentPageTemplate = ({
 }) => (
   <Layout>
     <SEO meta={[]} title={post.frontmatter.title} description={post.excerpt} />
-    <h1>{post.frontmatter.title}</h1>
 
-    <MDXRenderer>{post.body}</MDXRenderer>
+    <Row
+      className="text-center py-16 mb-4 font-bold"
+      style={{
+        background: `linear-gradient(45deg, ${post.frontmatter.color}, white`,
+      }}
+    >
+      <Col className="w-full">
+        <h1 className="text-3xl">{post.frontmatter.title}</h1>
+      </Col>
+    </Row>
+
+    <div className="cms-content font-serif text-xl max-w-xl mx-auto">
+      <MDXRenderer>{post.body}</MDXRenderer>
+    </div>
 
     <Bio />
 
@@ -76,8 +89,10 @@ export const pageQuery = graphql`
       id
       excerpt(pruneLength: 160)
       body
+
       frontmatter {
         title
+        color
         #        date(formatString: "MMMM DD, YYYY")
         #        description
       }

@@ -40,7 +40,7 @@ module.exports = {
       },
       fontFamily: {
         sans: ["Open Sans", ...defaultTheme.fontFamily.sans],
-        serif: ["Gelasio", ...defaultTheme.fontFamily.serif],
+        serif: [ ...defaultTheme.fontFamily.serif],
       },
     },
   },

@@ -2,11 +2,49 @@
 
 @tailwind components;
 
-@tailwind utilities;
-
 .sharpen {
   border: 1px solid rgba(0, 0, 0, 0.04);
 }
 body {
   scroll-behavior: smooth;
 }
+
+.cms-content h1,
+.cms-content h2,
+.cms-content h3,
+.cms-content h4,
+.cms-content h5,
+.cms-content h6,
+.cms-content p {
+  @apply mb-4;
+}
+
+.cms-content h1,
+.cms-content h2,
+.cms-content h3,
+.cms-content h4,
+.cms-content h5,
+.cms-content h6 {
+  @apply pt-8 font-bold font-sans;
+}
+
+.cms-content h1 {
+  @apply text-3xl;
+}
+.cms-content h2 {
+  @apply text-2xl;
+}
+.cms-content h3 {
+  @apply text-xl;
+}
+.cms-content h4 {
+  @apply text-xl;
+}
+.cms-content h5 {
+  @apply text-xl;
+}
+.cms-content h6 {
+  @apply text-xl;
+}
+
+@tailwind utilities;
