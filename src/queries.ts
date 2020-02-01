@@ -6,7 +6,7 @@ import {
   SiteMetadata_site_siteMetadata,
 } from "./__generated__/SiteMetadata"
 
-type SafeQuery<T> = DeepNonNullable<T>
+export type SafeQuery<T> = DeepNonNullable<T>
 
 export const useSiteMetadata = (): SafeQuery<SiteMetadata_site_siteMetadata> =>
   useStaticQuery<SafeQuery<SiteMetadata>>(
