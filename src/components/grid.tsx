@@ -5,7 +5,7 @@ export type StyleProps<T = {}> = {
   className?: string
   style?: CSSProperties
 } & T
-export type StylePropsWithChildren<T> = StyleProps<
+export type StylePropsWithChildren<T = {}> = StyleProps<
   {
     children?: ReactNode
   } & T
