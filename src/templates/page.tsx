@@ -1,12 +1,11 @@
 import React from "react"
-import { graphql, Link } from "gatsby"
-import { MDXRenderer } from "gatsby-plugin-mdx"
-import Bio from "../components/bio"
+import { graphql } from "gatsby"
 import Layout from "../components/layout"
 import SEO from "../components/seo"
 import { PagesBySlug } from "./__generated__/PagesBySlug"
 import { SafeQuery } from "../queries"
 import { Col, Row } from "../components/grid"
+import MdxContent from "../components/mdx-content"
 
 type PageInfos = {
   fields: { slug: string }
@@ -42,36 +41,34 @@ const ContentPageTemplate = ({
       </Col>
     </Row>
 
-    <div className="cms-content font-serif text-xl max-w-xl mx-auto">
-      <MDXRenderer>{post.body}</MDXRenderer>
-    </div>
+    <MdxContent content={post.body} />
 
-    <Bio />
+    {/*<Bio />*/}
 
-    <ul
-      style={{
-        display: `flex`,
-        flexWrap: `wrap`,
-        justifyContent: `space-between`,
-        listStyle: `none`,
-        padding: 0,
-      }}
-    >
-      <li>
-        {previous && (
-          <Link to={`blog${previous.fields.slug}`} rel="prev">
-            ← {previous.frontmatter.title}
-          </Link>
-        )}
-      </li>
-      <li>
-        {next && (
-          <Link to={`blog${next.fields.slug}`} rel="next">
-            {next.frontmatter.title} →
-          </Link>
-        )}
-      </li>
-    </ul>
+    {/*<ul*/}
+    {/*  style={{*/}
+    {/*    display: `flex`,*/}
+    {/*    flexWrap: `wrap`,*/}
+    {/*    justifyContent: `space-between`,*/}
+    {/*    listStyle: `none`,*/}
+    {/*    padding: 0,*/}
+    {/*  }}*/}
+    {/*>*/}
+    {/*  <li>*/}
+    {/*    {previous && (*/}
+    {/*      <Link to={`blog${previous.fields.slug}`} rel="prev">*/}
+    {/*        ← {previous.frontmatter.title}*/}
+    {/*      </Link>*/}
+    {/*    )}*/}
+    {/*  </li>*/}
+    {/*  <li>*/}
+    {/*    {next && (*/}
+    {/*      <Link to={`blog${next.fields.slug}`} rel="next">*/}
+    {/*        {next.frontmatter.title} →*/}
+    {/*      </Link>*/}
+    {/*    )}*/}
+    {/*  </li>*/}
+    {/*</ul>*/}
   </Layout>
 )
 
