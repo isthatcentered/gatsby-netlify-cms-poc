@@ -64,7 +64,7 @@ const QuickLinksBanner = (props: StyleProps<{ links: Goto[] }>) => (
       <div className="self-center">
         <ul className="list-disc">
           {props.links.map(link => (
-            <li>
+            <li key={link.label}>
               <Link
                 className="font-bold underline text-blue-700 block p-1"
                 to={link.path}
@@ -109,7 +109,7 @@ const cards = [
         "Votre vie de couple est en péril ? Vous faites face à une situation difficile avec vos enfants, vos parents ? Votre santé vous préoccupe ? Vous avez vécu un accident; un traumatisme ? Et vous aimeriez en parler pour vous libérer ?",
       color: blue,
       image: "epreuves-de-la-vie.png",
-      link: { path: "/#mal-etre", label: "Apprendre à mieux vivre" },
+      link: { path: "/mal-etre", label: "Apprendre à mieux vivre" },
     },
   ],
   quicklinks: Goto[] = [
@@ -130,78 +130,74 @@ const cards = [
 const HomePage = () => (
   <Layout>
     <SEO title="Home" description="" meta={[]} />
-    <header className="pb-20 pt-8">
-      <Container>
-        <Row>
-          <Col className="w-full items-center flex flex-col">
-            <h1
-              className="font-bold text-4xl text-center"
-              style={{
-                lineHeight: 1.4,
-                letterSpacing: "0.07em",
-              }}
+    <header className="pt-24 pb-32">
+      <Row>
+        <Col className="w-full items-center flex flex-col">
+          <h1
+            className="font-bold text-4xl text-center"
+            style={{
+              lineHeight: 1.4,
+              letterSpacing: "0.07em",
+            }}
+          >
+            Psychologue du Travail, <br />
+            Psychologue Clinicien
+            <span
+              className="text-base block font-normal text-gray-600 mt-2"
+              style={{ letterSpacing: "normal" }}
             >
-              Psychologue du Travail, <br />
-              Psychologue Clinicien
-              <span
-                className="text-base block font-normal text-gray-600 mt-2"
-                style={{ letterSpacing: "normal" }}
-              >
-                Sur Angers et Saint Melaine sur Aubance
-              </span>
-            </h1>
-          </Col>
-        </Row>
-      </Container>
+              Sur Angers et Saint Melaine sur Aubance
+            </span>
+          </h1>
+        </Col>
+      </Row>
     </header>
     <main>
-      <Container>
-        <section className="">
-          <Row>
-            <MainEntries cards={cards} />
-          </Row>
-        </section>
-        <section className="mb-8">
-          <Row>
-            <div className="bg-gray-100 w-2/3 p-8 pb-4 text-center flex flex-col justify-center items-center">
-              <div className="max-w-xl">
-                <h2 className="text-3xl mb-4 font-bold">À Votre Écoute</h2>
-                <p className="mb-4">
-                  Afin d’intervenir à différents niveaux, je mobilise des
-                  approches complémentaires.
-                </p>
+      <section className="">
+        <Row>
+          <MainEntries cards={cards} />
+        </Row>
+      </section>
+      <section className="mb-8">
+        <Row>
+          <div className="w-2/3 p-8 pb-4 text-center flex flex-col justify-center items-center">
+            <div className="max-w-xl">
+              <h2 className="text-3xl mb-4 font-bold">À Votre Écoute</h2>
+              <p className="mb-4">
+                Afin d’intervenir à différents niveaux, je mobilise des
+                approches complémentaires.
+              </p>
 
-                <p className="mb-4">
-                  La parole, l’EFT qui travaille sur la dimension émotionnelle,
-                  la PNL qui s’intéresse à la mobilisation des capacités ainsi
-                  que les méthodes du coaching qui permettent de convenir des
-                  objectifs et des moyens de les atteindre.
-                </p>
+              <p className="mb-4">
+                La parole, l’EFT qui travaille sur la dimension émotionnelle, la
+                PNL qui s’intéresse à la mobilisation des capacités ainsi que
+                les méthodes du coaching qui permettent de convenir des
+                objectifs et des moyens de les atteindre.
+              </p>
 
-                <p className="mb-4">
-                  Si votre motivation est de retrouver l'énergie, le courage, le
-                  plaisir de vivre, alors{" "}
-                  <Link className="text-blue-700 underline" to="/">
-                    travaillons ensemble à atteindre ce but
-                  </Link>
-                  .
-                </p>
-              </div>
+              <p className="mb-4">
+                Si votre motivation est de retrouver l'énergie, le courage, le
+                plaisir de vivre, alors{" "}
+                <Link className="text-blue-700 underline" to="/">
+                  travaillons ensemble à atteindre ce but
+                </Link>
+                .
+              </p>
             </div>
-            <div className="w-1/3 pl-0">
-              <img
-                src="jean-jacques-penin-psychologue-sur-angers-photo-profile.jpg"
-                alt=""
-              />
-            </div>
-          </Row>
-        </section>
-        <section className="">
-          <Row>
-            <QuickLinksBanner links={quicklinks} />
-          </Row>
-        </section>
-      </Container>
+          </div>
+          <div className="w-1/3 pl-0">
+            <img
+              src="jean-jacques-penin-psychologue-sur-angers-photo-profile.jpg"
+              alt=""
+            />
+          </div>
+        </Row>
+      </section>
+      <section className="">
+        <Row>
+          <QuickLinksBanner links={quicklinks} />
+        </Row>
+      </section>
     </main>
   </Layout>
 )
