@@ -14,7 +14,7 @@ collections:
     folder: content/blog
     create: true
     fields:
-#      - { name: path, label: Path }
+      #      - { name: path, label: Path }
       - { name: date, label: Date, widget: date }
       - { name: title, label: Title }
       - { name: description, label: Description }
@@ -31,7 +31,18 @@ collections:
     folder: content/pages
     create: true
     fields:
-#      - { name: path, label: Path }
+      #      - { name: path, label: Path }
+      - {
+          label: "Color",
+          name: "color",
+          widget: "select",
+          options:
+            [
+              { label: "Red", value: "rgb(243, 203, 200)" },
+              { label: "Blue", value: "rgb(215, 230, 235)" },
+              { label: "Yellow", value: "rgb(253, 230, 200)" },
+            ],
+        }
       - { name: title, label: Title }
-      - { name: description, label: Description }
       - { name: body, label: Body, widget: markdown }
+
