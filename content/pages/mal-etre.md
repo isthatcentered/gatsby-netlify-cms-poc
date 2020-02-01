@@ -1,5 +1,5 @@
 ---
-path: /mal-etre
+tags: 'rgb(253, 230, 200)'
 title: Mal être
 description: >-
   Manque de confiance en soi, difficultés à s'exprimer en public, hyper
