@@ -1,5 +1,6 @@
 const path = require(`path`)
 const { createFilePath } = require(`gatsby-source-filesystem`)
+const slugify = require("slugify")
 
 const removeTrailingPathSlash = path =>
   path === `/` ? path : path.replace(/\/$/, ``) // /test-blog-post/ -> /test-blog-post
@@ -8,6 +9,9 @@ exports.onCreateNode = ({ node, actions: { createNodeField }, getNode }) => {
   if (node.internal.type !== `Mdx`) return
 
   const value = removeTrailingPathSlash(createFilePath({ node, getNode }))
+    .split("/")
+    .map(slugify)
+    .join("/")
 
   createNodeField({
     name: `slug`,
