@@ -51,7 +51,7 @@ export const Navbar = (props: StylePropsWithChildren<{}>) => (
     {...props}
     className={cn(
       props.className,
-      "Navbar py-4 px-4 flex items-center justify-center"
+      "Navbar py-4 px-4 flex items-center justify-center z-10"
     )}
   >
     <button className="">Menu</button>

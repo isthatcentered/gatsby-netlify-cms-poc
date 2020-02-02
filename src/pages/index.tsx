@@ -217,11 +217,11 @@ const HomePage = () => (
         </Row>
       </section>
       <section className="mb-8 ">
-        <Row className="bg-gray-200">
-          <Col className="w-1/3 flex flex-col text-center justify-center pl-8 pr-8 bg-gray-100 border-gray-200 border-r">
-            <h2 className="text-3xl font-bold mb-4">Au quotidien</h2>
+        <Row className="bg-gray-100 py-4 pl-4">
+          <Col className="w-1/3 flex flex-col pr-8 justify-center">
+            <h2 className="text-3xl font-bold mb-4">Le blog</h2>
             <p className="text-gray-600 mb-8">
-              Le blog, réflexions sur la vie au quotidien et comment utiliser la
+              Réflexions sur la vie au quotidien et comment utiliser la
               psychologie pour vivre mieux
             </p>
             <Link className="text-blue-600 underline font-bold" to="/blog">
@@ -230,10 +230,10 @@ const HomePage = () => (
           </Col>
           {blogPosts.map((post, index) => (
             <Col className="w-1/3 pl-0 pr-0 ">
-              <article className={cn("h-full border-gray-200 border-r", `bg-gray-${index+2}00`)}>
+              <article className={cn("h-full", `bg-gray-${index + 2}00`)}>
                 <div className="relative" style={{ paddingTop: "100%" }}>
                   <img
-                    className="object-cover object-center absolute top-0 left-0 w-full h-full"
+                    className="object-cover object-top absolute top-0 left-0 w-full h-full"
                     src={post.image}
                     alt={post.label}
                   />
