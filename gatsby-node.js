@@ -5,10 +5,16 @@ const slugify = require("slugify")
 const removeTrailingPathSlash = path =>
   path === `/` ? path : path.replace(/\/$/, ``) // /test-blog-post/ -> /test-blog-post
 
-exports.onCreateNode = ({ node, actions: { createNodeField }, getNode }) => {
+exports.onCreateNode = async ({
+  node,
+  actions: { createNodeField },
+  getNode,
+}) => {
   if (node.internal.type !== `Mdx`) return
 
-  const value = removeTrailingPathSlash(createFilePath({ node, getNode }))
+  const { sourceInstanceName } = await getNode(node.parent)
+
+  const slug = removeTrailingPathSlash(createFilePath({ node, getNode }))
     .split("/")
     .map(slugify)
     .join("/")
@@ -16,18 +22,22 @@ exports.onCreateNode = ({ node, actions: { createNodeField }, getNode }) => {
   createNodeField({
     name: `slug`,
     node,
-    value,
+    value: slug,
+  })
+
+  createNodeField({
+    name: `type`,
+    node,
+    value: sourceInstanceName,
   })
 }
 
-const isGatsbyFilesystemSourceType = type => ({ node }) =>
-  node.parent.sourceInstanceName === type
-
-const allMdxOrderedByDate = `
+const allMdxOfTypeOrderedByDate = type => `
     query GetAllMdxByDate{
       allMdx(
         sort: { fields: [frontmatter___date], order: DESC }
         limit: 1000
+        filter: {fields: {type: {eq: "${type}"}}}
       ) {
         edges {
           node {
@@ -52,16 +62,15 @@ const createMdxContentType = gatsbySourceFilesystemName => (
   templatePath,
   prefix
 ) => (createPage, graphql, reporter) =>
-  graphql(allMdxOrderedByDate).then(result => {
-    if (result.errors) {
-      reporter.panic(result.errors)
-    }
+  graphql(allMdxOfTypeOrderedByDate(gatsbySourceFilesystemName)).then(
+    result => {
+      if (result.errors) {
+        reporter.panic(result.errors)
+      }
 
-    const pages = result.data.allMdx.edges
+      const pages = result.data.allMdx.edges
 
-    pages
-      .filter(isGatsbyFilesystemSourceType(gatsbySourceFilesystemName))
-      .forEach((post, index) => {
+      pages.forEach((post, index) => {
         const previous =
           index === pages.length - 1 ? null : pages[index + 1].node
         const next = index === 0 ? null : pages[index - 1].node
@@ -78,8 +87,9 @@ const createMdxContentType = gatsbySourceFilesystemName => (
         })
       })
 
-    return null
-  })
+      return null
+    }
+  )
 
 const createBlogPosts = createMdxContentType("blog")(
   `./src/templates/blog-post.js`,
