@@ -29,7 +29,7 @@ const MainEntries = (props: StyleProps<{ cards: typeof cards }>) => (
           className={cn(props.className, "px-4 py-6 text-center flex-1 w-1/3")}
           style={{ ...props.style, background: card.color }}
         >
-          <img className="mb-4" src={card.image} alt={card.title} />
+          <img className="mb-4" src={card.image} alt={card.imageAlt} />
           <h3
             className="font-bold text-2xl mb-4"
             style={{
@@ -131,29 +131,6 @@ const cards = [
     {
       label: "Prendre rendez-vous",
       path: "/",
-    },
-  ],
-  blogPosts: Array<{ tag: string; image: string } & Goto> = [
-    // {
-    //   tag: "Psychologie de l'enfant",
-    //   label: "Traitement psychologique de l’autisme",
-    //   path: "/",
-    //   image:
-    //     "https://assets-ouch.icons8.com/preview/90/49614dde-8a22-496a-93f7-9e5fb23c081b.png",
-    // },
-    {
-      tag: "Réapprendre à vivre",
-      label: "L’effet Einstellung ou la difficulté de penser différemment",
-      path: "/",
-      image:
-        "https://assets-ouch.icons8.com/preview/977/9e2856c1-84d3-446e-a92e-9edd7611a48a.png",
-    },
-    {
-      tag: "Réapprendre à vivre",
-      label: "L’échelle de bonheur subjectif: qu’est-ce que c’est ?",
-      path: "/",
-      image:
-        "https://assets-ouch.icons8.com/preview/527/a1385630-ea42-4e4b-816a-86ef30c2b402.png",
     },
   ]
 
