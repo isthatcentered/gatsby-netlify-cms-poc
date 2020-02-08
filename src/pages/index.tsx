@@ -91,7 +91,8 @@ const cards = [
       excerpt:
         "Vous êtes déprimé ? Vous manquez de confiance en vous ? Peut être vous battez-vous contre une anxiété permanente ? Vous voulez reprendre votre vie en main ? Vous rêvez d'une vie plus simple ?",
       color: yellow,
-      image: "mal-etre.png",
+      image: "/images/mal-etre.png",
+      imageAlt: "Dessin d'une forme abstraite évoquant un mal être interne",
       link: { path: "/mal-etre", label: "Apprendre à mieux vivre" },
     },
     {
@@ -99,7 +100,9 @@ const cards = [
       excerpt:
         "Votre travail envahit toute votre pensée.. Peut être venez-vous de vivre un conflit professionnel ou êtes vous en perte d'emploi ? Peut être traversez-vous une profonde démotivation, êtes vous proche du burn-out ? Vous rêvez de mieux utiliser vos compétences et envisagez un changement ? Un nouveau challenge se présente et vous vous demandez comment le relever ?",
       color: red,
-      image: "sante-au-travail.png",
+      image: "/images/sante-au-travail.png",
+      imageAlt:
+        "Dessin d'une forme abstraite évoquant la peur de parler en publique",
       link: {
         path: "/souffrance-au-travail",
         label: "Retrouver le goût d'aller au travail",
@@ -110,8 +113,10 @@ const cards = [
       excerpt:
         "Votre vie de couple est en péril ? Vous faites face à une situation difficile avec vos enfants, vos parents ? Votre santé vous préoccupe ? Vous avez vécu un accident; un traumatisme ? Et vous aimeriez en parler pour vous libérer ?",
       color: blue,
-      image: "epreuves-de-la-vie.png",
-      link: { path: "/mal-etre", label: "Apprendre à mieux vivre" },
+      image: "/images/epreuves-de-la-vie.png",
+      imageAlt:
+        "Dessin d'une forme abstraite évoquant un chemin de vie difficile",
+      link: { path: "/epreuves-de-la-vie", label: "Apprendre à mieux vivre" },
     },
   ],
   quicklinks: Goto[] = [
@@ -219,8 +224,8 @@ const HomePage = ({
             </div>
             <div className="w-1/3 pl-0">
               <img
-                src="jean-jacques-penin-psychologue-sur-angers-photo-profile.jpg"
-                alt=""
+                src="/images/jean-jacques-penin-psychologue-sur-angers-photo-profile.jpg"
+                alt="Photo plein pieds de Jean Jacques Penin, psychologue sur Angers"
               />
             </div>
           </Row>
