@@ -48,6 +48,14 @@ module.exports = {
         name: `page`,
       },
     },
+    // https://www.gatsbyjs.org/docs/working-with-images-in-markdown/#configuring-for-images-and-posts-in-different-directories
+    {
+      resolve: `gatsby-source-filesystem`,
+      options: {
+        path: `${__dirname}/static/assets`,
+        name: "cms-assets",
+      },
+    },
     {
       resolve: `gatsby-source-filesystem`,
       options: {
