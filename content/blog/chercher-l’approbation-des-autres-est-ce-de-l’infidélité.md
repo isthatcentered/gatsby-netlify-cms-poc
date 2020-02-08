@@ -7,11 +7,9 @@ hero:
   src: ../../static/assets/toa-heftiba-QHuauUyXRt8-unsplash.jpg
 title: 'Chercher l’approbation des autres : est-ce de l’infidélité ?'
 ---
-
-
 > Pensez-vous que l'infidélité est un mot qui s'applique uniquement aux relations ? Vous seriez surpris de constater que nous avons probablement tous été infidèles à un moment ou à un autre de notre vie. En effet, saviez-vous qu'être influencé par ce que les autres pensent est une forme d'infidélité ?
 
-![](https://nospensees.fr/wp-content/uploads/2020/02/femme-mirroir.jpg)
+![](../../static/assets/lisa-knight-f0tb0yevamg-unsplash.jpg)
 
 * [Les amis passifs-agressifs : quand la confiance fait mal](https://nospensees.fr/les-amis-passifs-agressifs-quand-la-confiance-fait-mal/)
 * [Différences entre personnes introverties et hypersensibles](https://nospensees.fr/differences-entre-personnes-introverties-et-hypersensibles/)
@@ -31,7 +29,7 @@ Ainsi, en cas d'acte d'infidélité, le fil de la confiance est rompu entre les
 
 En revanche,le maintien d'une relation saine nécessite l'apport de certains ingrédients. On peut citer par exemple, le soutien, la confiance, la protection, la [sécurité](https://nospensees.fr/3-signaux-qui-indiquent-linsecurite-en-amour/) et, surtout, l'acceptation totale de soi et de l'autre. Si vous suivez bien cette recette, le gâteau sera délicieux.
 
-![L'infidélité d'une femme envers elle-même](https://nospensees.fr/wp-content/uploads/2020/02/femme-triste-pensive.jpg)
+![L'infidélité d'une femme envers elle-même](../../static/assets/1kenzie-kraft-meUwWLcFZ7M-unsplash.jpg)
 
 ## L'infidélité envers soi-même
 
@@ -55,7 +53,7 @@ L'ingrédient fondamental pour créer et maintenir une [relation](https://www.f
 
 Ainsi, accepter ce que nous sommes et ce que nous voulons est le support même de la confiance en soi. C'est le pilier auquel nous pouvons nous accrocher pour être fidèles à nous-mêmes. Et ce, malgré le possible décalage entre notre personnalité et ce que notre environnement exige de nous.
 
-![L'amour propre pour éviter l'infidélité envers soi-même](https://nospensees.fr/wp-content/uploads/2020/02/femme-nature-calin-soi-meme.jpg)
+![L'amour propre pour éviter l'infidélité envers soi-même](../../static/assets/toa-heftiba-qhuauuyxrt8-unsplash.jpg)
 
 ## Moi et mon personnage
 
