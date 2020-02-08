@@ -48,9 +48,9 @@ collections:
           widget: "select",
           options:
             [
-              { label: "Red", value: "rgb(243, 203, 200)" },
-              { label: "Blue", value: "rgb(215, 230, 235)" },
-              { label: "Yellow", value: "rgb(253, 230, 200)" },
+              { label: "Rouge", value: "rgb(243, 203, 200)" },
+              { label: "Bleu", value: "rgb(215, 230, 235)" },
+              { label: "Jaune", value: "rgb(253, 230, 200)" },
             ],
         }
       - { name: title, label: Title }
