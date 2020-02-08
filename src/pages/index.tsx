@@ -11,6 +11,8 @@ import {
   StyleProps,
   StylePropsWithChildren,
 } from "../components/grid"
+import { HomePageData } from "./__generated__/HomePageData"
+import { SafeQuery } from "../queries"
 
 type Goto = {
   path: string
@@ -150,8 +152,13 @@ const cards = [
     },
   ]
 
-const HomePage = (props: { data: any }) => {
-  console.log(props)
+const HomePage = ({
+  data: { posts },
+  ...props
+}: {
+  data: SafeQuery<HomePageData>
+}) => {
+  console.log(posts)
   return (
     <Layout>
       <SEO title="Home" description="" meta={[]} />
@@ -230,21 +237,26 @@ const HomePage = (props: { data: any }) => {
                 Tous les articles
               </Link>
             </Col>
-            {blogPosts.map((post, index) => (
-              <Col className="w-1/3 pl-0 pr-0 ">
+            {posts.edges.map(({ node: post }, index) => (
+              <Col className="w-1/3 pl-0 pr-0 " key={post.id}>
                 <article className={cn("h-full", `bg-gray-${index + 2}00`)}>
                   <div className="relative" style={{ paddingTop: "100%" }}>
                     <img
                       className="object-cover object-top absolute top-0 left-0 w-full h-full"
-                      src={post.image}
-                      alt={post.label}
+                      src={post.frontmatter.hero.src}
+                      alt={post.frontmatter.hero.alt}
                     />
                   </div>
-                  <Link to="/blah" className="block p-4 text-center">
-                    <p className=" text-xs text-gray-600 mb-2 hidden">
-                      {post.tag}
-                    </p>
-                    <h3 className="font-bold text-2xl">{post.label}</h3>
+                  <Link
+                    to={`/blog${post.fields.slug}`}
+                    className="block p-4 text-center"
+                  >
+                    {/*  <p className=" text-xs text-gray-600 mb-2 hidden">*/}
+                    {/*    {post.tag}*/}
+                    {/*  </p>*/}
+                    <h3 className="font-bold text-2xl">
+                      {post.frontmatter.title}
+                    </h3>
                   </Link>
                 </article>
               </Col>
@@ -263,19 +275,26 @@ const HomePage = (props: { data: any }) => {
 
 export const query = graphql`
   query HomePageData {
-     posts: allMdx(
+    posts: allMdx(
       filter: { fields: { type: { eq: "blog" } } }
       limit: 2
-      sort: { order: ASC, fields: frontmatter___date }
+      sort: { order: DESC, fields: frontmatter___date }
     ) {
       edges {
         node {
           frontmatter {
             title
             date
-            description
+            hero {
+              alt
+              src
+            }
           }
+          id
           body
+          fields {
+            slug
+          }
           excerpt(pruneLength: 300)
         }
       }
