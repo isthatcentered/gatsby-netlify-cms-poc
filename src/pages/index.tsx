@@ -13,6 +13,7 @@ import {
 } from "../components/grid"
 import { HomePageData } from "./__generated__/HomePageData"
 import { SafeQuery } from "../queries"
+import Img from "gatsby-image"
 
 type Goto = {
   path: string
@@ -223,10 +224,11 @@ const HomePage = ({
               <Col className="w-1/3 pl-0 pr-0 " key={post.id}>
                 <article className={cn("h-full", `bg-gray-${index + 2}00`)}>
                   <div className="relative" style={{ paddingTop: "100%" }}>
-                    <img
+                    <Img
                       className="object-cover object-top absolute top-0 left-0 w-full h-full"
-                      src={post.frontmatter.hero.src}
+                      fluid={post.frontmatter.hero.src.childImageSharp.fluid}
                       alt={post.frontmatter.hero.alt}
+                      style={{ position: "absolute" }}
                     />
                   </div>
                   <Link
@@ -269,7 +271,13 @@ export const query = graphql`
             date
             hero {
               alt
-              src
+              src {
+                childImageSharp {
+                  fluid(maxHeight: 380, maxWidth: 380) {
+                    ...GatsbyImageSharpFluid
+                  }
+                }
+              }
             }
           }
           id

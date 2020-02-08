@@ -8,14 +8,15 @@ backend:
 media_folder: static/assets
 public_folder: assets
 
-
 collections:
   - name: blog
     label: Blog
     folder: content/blog
     create: true
-    media_folder: '../../static/assets'
-    public_folder: '../../static/assets'
+    # Where to save
+    media_folder: "../../static/assets"
+    # Path used as src
+    public_folder: "../../static/assets"
     fields:
       - { name: date, label: Date, widget: date }
       - label: "Hero image"
