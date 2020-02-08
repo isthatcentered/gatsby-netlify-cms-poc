@@ -1,4 +1,4 @@
-import React, { PropsWithChildren } from "react"
+import React, { PropsWithChildren, useEffect, useRef, useState } from "react"
 import { graphql, Link, StaticQuery } from "gatsby"
 import cn from "classnames"
 import {
@@ -10,6 +10,12 @@ import {
   StylePropsWithChildren,
 } from "./grid"
 import { GetSiteTitle } from "./__generated__/GetSiteTitle"
+import CaptureOutsideClick from "./capture-outside-click"
+import {
+  Disclosure,
+  DisclosureButton,
+  DisclosurePanel,
+} from "@reach/disclosure"
 
 const Logo = (props: StyleProps) => (
   <StaticQuery<GetSiteTitle>
@@ -46,22 +52,60 @@ const Logo = (props: StyleProps) => (
   />
 )
 
-export const Navbar = (props: StylePropsWithChildren<{}>) => (
-  <div
-    {...props}
-    className={cn(
-      props.className,
-      "Navbar py-4 px-4 flex items-center justify-center"
-    )}
-  >
-    <button className="">Menu</button>
-    <Logo className="mx-auto" />
-    <Link to="/contact">Tarifs & Contact</Link>
-  </div>
-)
+const Drawer = (
+  props: StyleProps<{ opened: boolean; onClose: () => void }>
+) => {
+  const ref = useRef<HTMLDivElement | null>(null)
 
-const Header = () => (
-  <header>
+  useEffect(() => {
+    if (props.opened && ref.current) ref.current.focus()
+  }, [ref, props.opened])
+
+  return (
+    <DisclosurePanel
+      style={{ ...props.style, width: 300 }}
+      className={cn(
+        props.className,
+        "Drawer fixed inset-y-0 left-0 bg-white shadow-lg z-20"
+      )}
+    >
+      <CaptureOutsideClick
+        onClickOutside={props.onClose}
+        className="p-4 h-full"
+      >
+        <div className="mb-4 text-right">
+          <DisclosureButton ref={ref}>Menu</DisclosureButton>
+        </div>
+      </CaptureOutsideClick>
+    </DisclosurePanel>
+  )
+}
+
+export const Navbar = (props: StyleProps<{}>) => {
+  const [isNavOpen, setIsNavOpen] = useState<boolean>(false)
+  return (
+    <Disclosure open={isNavOpen} onChange={() => setIsNavOpen(state => !state)}>
+      <Drawer
+        opened={isNavOpen}
+        onClose={() => isNavOpen && setIsNavOpen(false)}
+      />
+      <div
+        style={props.style}
+        className={cn(
+          props.className,
+          "Navbar py-4 px-4 flex items-center justify-center"
+        )}
+      >
+        <DisclosureButton>Menu</DisclosureButton>
+        <Logo className="mx-auto" />
+        <Link to="/contact">Tarifs & Contact</Link>
+      </div>
+    </Disclosure>
+  )
+}
+
+const Header = (props: StyleProps) => (
+  <header {...props}>
     <Navbar />
   </header>
 )
