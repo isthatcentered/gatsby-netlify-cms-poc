@@ -15,7 +15,7 @@ De même, il y a un fait que nous devons préciser : **l’effet Einstellung ne 
 
 > Le terme Einstellung vient de l’allemand et est l’union de deux termes : ajustement et attitude. Il définit les situations dans lesquelles nous nous adaptons aux solutions les plus connues, en entravant d’autres alternatives.
 
-![Image alt text](/assets/toa-heftiba-qhuauuyxrt8-unsplash.jpg "Image title")
+![Image alt text](../../static/assets/toa-heftiba-qhuauuyxrt8-unsplash.jpg "Image title")
 
 ## L’effet Einstellung ou le raccourci cognitif qui bloque notre esprit
 
@@ -50,7 +50,6 @@ Que pouvons-nous faire ? En réalité, nous pourrions faire de multiples changem
 * Lorsqu’il s’agit de résoudre un problème, ne vous contentez pas de garder les premières idées qui vous viennent à l’esprit. Soyez capable d’élargir votre approche
 * Cultivez le savoir, élargissez vos connaissances. Vous êtes peut-être un expert dans certains domaines, mais en approfondir d’autres vous aidera à élargir votre horizon en termes de perspectives, et aussi, à relativiser
 * Contrôlez les réactions de votre esprit et évitez le conformisme. Il est très fréquent que nous disions des choses comme « je ne le sais que trop bien ». « Pourquoi essayer d’une autre manière quand je sais que ça fonctionne »… C’est ce genre de réflexion qui érige l’effet Einstellung. Evitons-les
-* Osez désapprendre certaines choses pour les apprendre sous d’autres perspectives et approches
-  Ecoutez votre entourage, soyez attentif aux points de vue opposés aux vôtres, encouragez-vous à improviser, à entraîner le muscle créatif de votre esprit
+* Osez désapprendre certaines choses pour les apprendre sous d’autres perspectives et approches Ecoutez votre entourage, soyez attentif aux points de vue opposés aux vôtres, encouragez-vous à improviser, à entraîner le muscle créatif de votre esprit
 
 En conclusion, l’utilisation d’une approche latérale, plus ouverte, flexible et originale demande du temps. Nous devons rééduquer notre cerveau, l’inviter à cesser de s’accrocher autant aux idées préconçues et à se tourner vers la nouveauté, afin de pouvoir continuer à apprendre et à grandir.
