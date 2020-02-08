@@ -14,18 +14,17 @@ collections:
     folder: content/blog
     create: true
     fields:
-      #      - { name: path, label: Path }
       - { name: date, label: Date, widget: date }
+      - { label: "Hero Image", name: "thumbnail", widget: "image" }
       - { name: title, label: Title }
-      - { name: description, label: Description }
       - { name: body, label: Body, widget: markdown }
-      - {
-          label: "Tags",
-          name: "tags",
-          widget: "list",
-          allow_add: true,
-          default: [],
-        }
+#      - {
+#          label: "Tags",
+#          name: "tags",
+#          widget: "list",
+#          allow_add: true,
+#          default: [],
+#        }
   - name: page
     label: Page
     folder: content/pages
@@ -45,4 +44,3 @@ collections:
         }
       - { name: title, label: Title }
       - { name: body, label: Body, widget: markdown }
-
