@@ -92,7 +92,7 @@ const createMdxContentType = gatsbySourceFilesystemName => (
   )
 
 const createBlogPosts = createMdxContentType("blog")(
-  `./src/templates/blog-post.js`,
+  `./src/templates/blog-post.tsx`,
   "blog"
 )
 

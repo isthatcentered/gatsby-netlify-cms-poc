@@ -19,6 +19,10 @@ body {
   @apply mb-4;
 }
 
+.cms-content p {
+  @apply leading-normal;
+}
+
 .cms-content h1,
 .cms-content h2,
 .cms-content h3,
