@@ -15,12 +15,10 @@ body {
 .cms-content h4,
 .cms-content h5,
 .cms-content h6,
-.cms-content p {
-  @apply mb-4;
-}
-
-.cms-content p {
-  @apply leading-normal;
+.cms-content p,
+.cms-content ul,
+.cms-content blockquote {
+  @apply mb-6;
 }
 
 .cms-content h1,
@@ -49,6 +47,28 @@ body {
 }
 .cms-content h6 {
   @apply text-xl;
+}
+
+.cms-content p {
+  @apply leading-normal;
+}
+.cms-content blockquote {
+  @apply pl-6 border-l-2 border-gray-400 italic tracking-wide;
+}
+.cms-content ul {
+  @apply list-disc list-inside pl-4;
+}
+.cms-content a {
+  @apply text-blue-700 underline;
+}
+.cms-content .gatsby-resp-image-wrapper {
+  @apply rounded-sm shadow overflow-hidden;
+}
+.cms-content {
+}
+.cms-content {
+}
+.cms-content {
 }
 
 @tailwind utilities;

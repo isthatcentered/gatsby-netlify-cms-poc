@@ -51,7 +51,7 @@ export const Navbar = (props: StylePropsWithChildren<{}>) => (
     {...props}
     className={cn(
       props.className,
-      "Navbar py-4 px-4 flex items-center justify-center z-10"
+      "Navbar py-4 px-4 flex items-center justify-center"
     )}
   >
     <button className="">Menu</button>
@@ -152,7 +152,7 @@ const Layout = (props: PropsWithChildren<{}>) => (
     style={{ background: "#d3d3d347" }}
   >
     <Container className="bg-white relative">
-      <Row className="sticky top-0 left-0 right-0 bg-white">
+      <Row className="sticky top-0 left-0 right-0 bg-white z-10">
         <Col className="w-full">
           <Header />
         </Col>
