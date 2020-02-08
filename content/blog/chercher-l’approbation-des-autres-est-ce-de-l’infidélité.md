@@ -53,7 +53,7 @@ L'ingrédient fondamental pour créer et maintenir une [relation](https://www.f
 
 Ainsi, accepter ce que nous sommes et ce que nous voulons est le support même de la confiance en soi. C'est le pilier auquel nous pouvons nous accrocher pour être fidèles à nous-mêmes. Et ce, malgré le possible décalage entre notre personnalité et ce que notre environnement exige de nous.
 
-![L'amour propre pour éviter l'infidélité envers soi-même](../../static/assets/toa-heftiba-qhuauuyxrt8-unsplash.jpg)
+![L'amour propre pour éviter l'infidélité envers soi-même](../../static/assets/zachary-anderson-XXjXOCFOflA-unsplash.jpg)
 
 ## Moi et mon personnage
 
