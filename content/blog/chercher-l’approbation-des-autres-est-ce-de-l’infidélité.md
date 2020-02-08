@@ -1,6 +1,8 @@
 ---
 date: 2020-02-08T08:41:46.450Z
-thumbnail: /assets/toa-heftiba-qhuauuyxrt8-unsplash.jpg
+heroImage:
+  heroAlt: Photo d'une adolescente croisant les doigts derrière son dos
+  heroSrc: /assets/toa-heftiba-qhuauuyxrt8-unsplash.jpg
 title: 'Chercher l’approbation des autres : est-ce de l’infidélité ?'
 ---
 > Pensez-vous que l'infidélité est un mot qui s'applique uniquement aux relations ? Vous seriez surpris de constater que nous avons probablement tous été infidèles à un moment ou à un autre de notre vie. En effet, saviez-vous qu'être influencé par ce que les autres pensent est une forme d'infidélité ?

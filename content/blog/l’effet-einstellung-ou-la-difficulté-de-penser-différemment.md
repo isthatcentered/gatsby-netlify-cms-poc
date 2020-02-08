@@ -1,6 +1,8 @@
 ---
 date: 2020-02-08T07:07:12.782Z
-thumbnail: /assets/senjuti-kundu-jfolijrnvey-unsplash.jpg
+heroImage:
+  heroAlt: 'Photo d''une enfant souriante, le visage couvert de peinture'
+  heroSrc: /assets/senjuti-kundu-jfolijrnvey-unsplash.jpg
 title: L’effet Einstellung ou la difficulté de penser différemment
 ---
 **L’effet Einstellung est avant tout un piège cognitif dans lequel nous tombons fréquemment.** Cela se produit, par exemple, lorsque nous essayons de résoudre un problème et, en l’analysant de manière approfondie et prudente, nous considérons comme acquis qu’un tel défi n’a pas de solution. Nous pensons ainsi parce que notre cerveau raisonne de manière rigide et est incapable d’assumer de nouvelles perspectives.
