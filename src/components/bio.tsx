@@ -9,11 +9,11 @@ const Bio = () => (
       const { author, social } = data.site.siteMetadata
       return (
         <div className="flex">
-          <Image
-            fixed={data.avatar.childImageSharp.fixed}
-            alt={author}
-            className="mr-4 rounded-full 🛑"
-          />
+          {/*<Image*/}
+          {/*  fixed={data.avatar.childImageSharp.fixed}*/}
+          {/*  alt={author}*/}
+          {/*  className="mr-4 rounded-full 🛑"*/}
+          {/*/>*/}
           <p>
             Written by <strong>{author}</strong> who lives and works in San
             Francisco building useful things.
