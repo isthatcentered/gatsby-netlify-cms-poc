@@ -15,16 +15,27 @@ collections:
     create: true
     fields:
       - { name: date, label: Date, widget: date }
-      - { label: "Hero Image", name: "thumbnail", widget: "image" }
+      - label: "Hero image"
+        name: "hero"
+        hint: "L'image affichée en haut de chaque post ainsi que sur le lien vers le post dans la page d'accueil"
+        widget: "object"
+        fields:
+          - { label: "Image", name: "src", widget: "image" }
+          - {
+              label: "Image description",
+              hint: "Description visuelle de l'image pour google",
+              name: "alt",
+              widget: "string",
+            }
       - { name: title, label: Title }
       - { name: body, label: Body, widget: markdown }
-#      - {
-#          label: "Tags",
-#          name: "tags",
-#          widget: "list",
-#          allow_add: true,
-#          default: [],
-#        }
+  #      - {
+  #          label: "Tags",
+  #          name: "tags",
+  #          widget: "list",
+  #          allow_add: true,
+  #          default: [],
+  #        }
   - name: page
     label: Page
     folder: content/pages
