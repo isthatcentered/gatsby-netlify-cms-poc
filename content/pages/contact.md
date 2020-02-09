@@ -1,5 +1,5 @@
 ---
-color: 'rgb(215, 230, 235)'
+color: 'blue'
 title: Contact
 ---
 Poser une question par courriel à: [jjpenin@hotmail.fr](mailto:jjpenin@hotmail.fr)

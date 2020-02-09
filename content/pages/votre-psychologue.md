@@ -1,5 +1,5 @@
 ---
-color: 'rgb(215, 230, 235)'
+color: 'blue'
 title: Votre psychologue
 ---
 Initialement formé à la psychanalyse, qui cherche à donner sens aux symptômes, j'accompagne des personnes malmenées par des évènement personnels ou professionnels. Mon approche prend en compte les émotions, les ressentis physiques, les pensées limitantes. 

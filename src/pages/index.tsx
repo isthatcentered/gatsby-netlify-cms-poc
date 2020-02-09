@@ -20,6 +20,12 @@ type Goto = {
   label: string
 }
 
+export const THEME_COLORS = {
+  yellow: "#FCE7C4",
+  blue: "#DAEAFB",
+  red: "#FCCAC4",
+}
+
 const MainEntries = (props: StyleProps<{ cards: typeof cards }>) => (
   <div style={props.style} className={cn("", props.className)}>
     <h2 className="sr-only">Pourquoi consulter ?</h2>
@@ -82,16 +88,12 @@ const QuickLinksBanner = (props: StyleProps<{ links: Goto[] }>) => (
   </div>
 )
 
-const yellow = "rgb(253, 230, 200)",
-  blue = "rgb(215, 230, 235)",
-  red = "rgb(243, 203, 200)"
-
 const cards = [
     {
       title: "Mal être",
       excerpt:
         "Vous êtes déprimé ? Vous manquez de confiance en vous ? Peut être vous battez-vous contre une anxiété permanente ? Vous voulez reprendre votre vie en main ? Vous rêvez d'une vie plus simple ?",
-      color: yellow,
+      color: THEME_COLORS["yellow"],
       image: "/images/mal-etre.png",
       imageAlt: "Dessin d'une forme abstraite évoquant un mal être interne",
       link: { path: "/mal-etre", label: "Apprendre à mieux vivre" },
@@ -100,7 +102,7 @@ const cards = [
       title: "Souffrance au travail",
       excerpt:
         "Votre travail envahit toute votre pensée.. Peut être venez-vous de vivre un conflit professionnel ou êtes vous en perte d'emploi ? Peut être traversez-vous une profonde démotivation, êtes vous proche du burn-out ? Vous rêvez de mieux utiliser vos compétences et envisagez un changement ? Un nouveau challenge se présente et vous vous demandez comment le relever ?",
-      color: red,
+      color: THEME_COLORS["red"],
       image: "/images/sante-au-travail.png",
       imageAlt:
         "Dessin d'une forme abstraite évoquant la peur de parler en publique",
@@ -113,7 +115,7 @@ const cards = [
       title: "Epreuves de la vie",
       excerpt:
         "Votre vie de couple est en péril ? Vous faites face à une situation difficile avec vos enfants, vos parents ? Votre santé vous préoccupe ? Vous avez vécu un accident; un traumatisme ? Et vous aimeriez en parler pour vous libérer ?",
-      color: blue,
+      color: THEME_COLORS["blue"],
       image: "/images/epreuves-de-la-vie.png",
       imageAlt:
         "Dessin d'une forme abstraite évoquant un chemin de vie difficile",

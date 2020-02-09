@@ -6,6 +6,7 @@ import { PagesBySlug } from "./__generated__/PagesBySlug"
 import { SafeQuery } from "../queries"
 import { Col, Row } from "../components/grid"
 import MdxContent from "../components/mdx-content"
+import { THEME_COLORS } from "../pages"
 
 type PageInfos = {
   fields: { slug: string }
@@ -33,7 +34,9 @@ const ContentPageTemplate = ({
     <Row
       className="text-center py-16 mb-4 font-bold"
       style={{
-        background: `linear-gradient(45deg, ${post.frontmatter.color}, white`,
+        background: `linear-gradient(45deg, ${
+          THEME_COLORS[post.frontmatter.color as "yellow" | "red" | "blue"]
+        }, white`,
       }}
     >
       <Col className="w-full">

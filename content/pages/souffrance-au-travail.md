@@ -1,5 +1,5 @@
 ---
-color: 'rgb(243, 203, 200)'
+color: 'red'
 title: Souffrance au travail
 ---
 Pour tout salarié, employé ou cadre:

@@ -1,5 +1,5 @@
 ---
-color: 'rgb(253, 230, 200)'
+color: 'yellow'
 title: Mal être
 ---
 Dans mon Cabinet, à Angers ou Saint Melaine, divers sujets sont évoqués ainsi:

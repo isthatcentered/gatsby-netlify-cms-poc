@@ -52,9 +52,9 @@ collections:
           widget: "select",
           options:
             [
-              { label: "Rouge", value: "rgb(243, 203, 200)" },
-              { label: "Bleu", value: "rgb(215, 230, 235)" },
-              { label: "Jaune", value: "rgb(253, 230, 200)" },
+              { label: "Rouge", value: "red" },
+              { label: "Bleu", value: "blue" },
+              { label: "Jaune", value: "yellow" },
             ],
         }
       - { name: title, label: Title }

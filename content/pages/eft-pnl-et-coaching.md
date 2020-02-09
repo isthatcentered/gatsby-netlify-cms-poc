@@ -1,5 +1,5 @@
 ---
-color: 'rgb(215, 230, 235)'
+color: 'blue'
 title: 'EFT, PNL et Coaching'
 ---
 ## Quelques repères

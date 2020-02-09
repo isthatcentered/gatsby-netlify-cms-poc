@@ -1,5 +1,5 @@
 ---
-color: 'rgb(253, 230, 200)'
+color: 'yellow'
 title: Epreuves de la vie
 ---
 Dans mon cabinet de psychologue à Angers ou Saint Melaine,
