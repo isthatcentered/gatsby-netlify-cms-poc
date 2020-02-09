@@ -16,6 +16,7 @@ import {
   DisclosureButton,
   DisclosurePanel,
 } from "@reach/disclosure"
+import { IconClose } from "./icons"
 
 const Logo = (props: StyleProps) => (
   <StaticQuery<GetSiteTitle>
@@ -53,7 +54,7 @@ const Logo = (props: StyleProps) => (
 )
 
 const Drawer = (
-  props: StyleProps<{ opened: boolean; onClose: () => void }>
+  props: StylePropsWithChildren<{ opened: boolean; onClose: () => void }>
 ) => {
   const ref = useRef<HTMLDivElement | null>(null)
 
@@ -74,21 +75,107 @@ const Drawer = (
         className="p-4 h-full"
       >
         <div className="mb-4 text-right">
-          <DisclosureButton ref={ref}>Menu</DisclosureButton>
+          <DisclosureButton ref={ref}>
+            <span className="sr-only">Fermer le menu</span>
+            <IconClose className="w-4 h-4" />
+          </DisclosureButton>
         </div>
+        {props.children}
       </CaptureOutsideClick>
     </DisclosurePanel>
   )
 }
+const drawerNav = [
+  {
+    label: "Accès rapide",
+    items: [
+      {
+        title: "Accueil",
+        slug: "/",
+      },
+      {
+        title: "Tarifs & Contact",
+        slug: "/contact",
+      },
+      {
+        title: "Prendre rendez-vous",
+        slug: "/contact",
+      },
+    ],
+  },
+  {
+    label: "Pourquoi consulter",
+    items: [
+      {
+        title: "Epreuves de la vie",
+        slug: "/epreuves-de-la-vie",
+      },
+      {
+        title: "Souffrance au travail",
+        slug: "/souffrance-au-travail",
+      },
+      {
+        title: "Mal être",
+        slug: "/mal-etre",
+      },
+    ],
+  },
+  {
+    label: "Réponses à vos questions",
+    items: [
+      {
+        title: "EFT, PNL, Coaching ?",
+        slug: "/eft-pnl-et-coaching",
+      },
+      {
+        title: "Votre psychologue",
+        slug: "/votre-psychologue",
+      },
+    ],
+  },
+  {
+    label: "Découvrir",
+    items: [
+      {
+        title: "Blog",
+        slug: "/blog",
+      },
+    ],
+  },
+]
 
-export const Navbar = (props: StyleProps<{}>) => {
+const NavDrawerMenu = (props: StyleProps<{ sections: typeof drawerNav }>) => (
+  <div className={props.className} style={props.style}>
+    {props.sections.map(section => (
+      <nav className="mb-8">
+        <h3 className="text-gray-600 text-sm px-2">{section.label}</h3>
+        <ul>
+          {section.items.map(item => (
+            <li key={item.title}>
+              <Link
+                className="block p-2 text-xl hover:bg-gray-100"
+                to={item.slug}
+              >
+                {item.title}
+              </Link>
+            </li>
+          ))}
+        </ul>
+      </nav>
+    ))}
+  </div>
+)
+
+export const Navbar = (props: StyleProps) => {
   const [isNavOpen, setIsNavOpen] = useState<boolean>(false)
   return (
     <Disclosure open={isNavOpen} onChange={() => setIsNavOpen(state => !state)}>
       <Drawer
         opened={isNavOpen}
         onClose={() => isNavOpen && setIsNavOpen(false)}
-      />
+      >
+        <NavDrawerMenu sections={drawerNav} />
+      </Drawer>
       <div
         style={props.style}
         className={cn(
