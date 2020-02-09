@@ -145,25 +145,28 @@ const drawerNav = [
 ]
 
 const NavDrawerMenu = (props: StyleProps<{ sections: typeof drawerNav }>) => (
-  <div className={props.className} style={props.style}>
-    {props.sections.map(section => (
-      <nav className="mb-8">
-        <h3 className="text-gray-600 text-sm px-2">{section.label}</h3>
-        <ul>
-          {section.items.map(item => (
-            <li key={item.title}>
-              <Link
-                className="block p-2 text-xl hover:bg-gray-100"
-                to={item.slug}
-              >
-                {item.title}
-              </Link>
-            </li>
-          ))}
-        </ul>
-      </nav>
-    ))}
-  </div>
+  <nav aria-labelledby="main-nav-header" className={props.className} style={props.style}>
+    <h2 id="main-nav-header" className="sr-only">Navigation principale</h2>
+    <ul>
+      {props.sections.map(section => (
+        <li className="mb-8" key={section.label}>
+          <h3 className="text-gray-600 text-sm px-2">{section.label}</h3>
+          <ul>
+            {section.items.map(item => (
+              <li key={item.title}>
+                <Link
+                  className="block p-2 text-xl hover:bg-gray-100"
+                  to={item.slug}
+                >
+                  {item.title}
+                </Link>
+              </li>
+            ))}
+          </ul>
+        </li>
+      ))}
+    </ul>
+  </nav>
 )
 
 export const Navbar = (props: StyleProps) => {
