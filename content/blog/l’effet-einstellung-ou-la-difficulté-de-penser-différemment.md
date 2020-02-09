@@ -1,8 +1,8 @@
 ---
 date: 2020-02-08T14:33:31.803Z
 hero:
-  alt: hero image alt text
-  src: ../../static/assets/jean-carlo-emer-18lBD7b1kmE-unsplash.jpg
+  alt: Illustration d'une personne entrant dans un carton
+  src: ../../static/assets/marginalia-order-complete.png
 title: L’effet Einstellung ou la difficulté de penser différemment
 ---
 
