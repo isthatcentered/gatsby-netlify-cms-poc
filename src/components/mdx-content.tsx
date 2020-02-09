@@ -10,7 +10,7 @@ const MdxContent = (
     toc: { url: string; title: string }[] | undefined
   }>
 ) => (
-  <div {...props} className={cn("flex px-8", props.className)}>
+  <div {...props} className={cn("flex", props.className)}>
     <div className="cms-content font-serif text-xl w-2/3 items-start">
       <MDXRenderer>{props.content}</MDXRenderer>
     </div>

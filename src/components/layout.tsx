@@ -291,7 +291,7 @@ const Layout = (props: PropsWithChildren<{}>) => (
           <Header />
         </Col>
       </Row>
-      <main>{props.children}</main>
+      <main className="px-8">{props.children}</main>
       <Footer />
     </Container>
   </div>
