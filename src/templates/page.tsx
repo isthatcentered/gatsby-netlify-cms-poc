@@ -22,29 +22,29 @@ type PageContext = {
 
 const ContentPageTemplate = ({
   pageContext: { next, previous },
-  data: { mdx: post },
+  data: { page: page },
   ...props
 }: {
   data: SafeQuery<PagesBySlug>
   pageContext: PageContext
 }) => (
   <Layout>
-    <SEO meta={[]} title={post.frontmatter.title} description={post.excerpt} />
+    <SEO meta={[]} title={page.frontmatter.title} description={page.excerpt} />
 
     <Row
       className="text-center py-16 mb-4 font-bold"
       style={{
         background: `linear-gradient(45deg, ${
-          THEME_COLORS[post.frontmatter.color as "yellow" | "red" | "blue"]
+          THEME_COLORS[page.frontmatter.color as "yellow" | "red" | "blue"]
         }, white`,
       }}
     >
       <Col className="w-full">
-        <h1 className="text-3xl">{post.frontmatter.title}</h1>
+        <h1 className="text-3xl">{page.frontmatter.title}</h1>
       </Col>
     </Row>
 
-    <MdxContent toc={[]} content={post.body} />
+    <MdxContent toc={page.tableOfContents.items} content={page.body} />
 
     {/*<Bio />*/}
 
@@ -85,11 +85,11 @@ export const pageQuery = graphql`
         author
       }
     }
-    mdx(fields: { slug: { eq: $slug } }) {
+    page: mdx(fields: { slug: { eq: $slug } }) {
       id
       excerpt(pruneLength: 160)
       body
-
+      tableOfContents(maxDepth: 4)
       frontmatter {
         title
         color
