@@ -152,114 +152,120 @@ const HomePage = ({
   data: SafeQuery<HomePageData>
 }) => (
   <Layout>
-    <SEO title="Home" description="" meta={[]} />
-    <header className="pt-24 pb-32">
-      <Row>
-        <Col className="w-full items-center">
-          <h1
-            className="font-bold text-4xl text-center"
-            style={{
-              lineHeight: 1.4,
-              letterSpacing: "0.07em",
-            }}
-          >
-            Psychologue du Travail, <br />
-            Psychologue Clinicien
-            <span
-              className="text-base block font-normal text-gray-600 mt-2"
-              style={{ letterSpacing: "normal" }}
-            >
-              Sur Angers et Saint Melaine sur Aubance
-            </span>
-          </h1>
-        </Col>
-      </Row>
-    </header>
-    <div>
-      <Row>
-        <MainEntries cards={cards} />
-      </Row>
-      <Row>
-        <section aria-labelledby="a-votre-ecoute" className="w-full flex">
-          <div className="w-2/3 p-8 pb-4 text-center flex flex-col justify-center items-center">
-            <div className="max-w-xl">
-              <h2 id="a-votre-ecoute" className="text-3xl mb-4 font-bold">
-                À Votre Écoute
-              </h2>
-              <p className="mb-4">
-                Afin d’intervenir à différents niveaux, je mobilise des
-                approches complémentaires.
-              </p>
-
-              <p className="mb-4">
-                La parole, l’EFT qui travaille sur la dimension émotionnelle, la
-                PNL qui s’intéresse à la mobilisation des capacités ainsi que
-                les méthodes du coaching qui permettent de convenir des
-                objectifs et des moyens de les atteindre.
-              </p>
-
-              <p className="mb-4">
-                Si votre motivation est de retrouver l'énergie, le courage, le
-                plaisir de vivre, alors{" "}
-                <Link className="text-blue-700 underline" to="/">
-                  travaillons ensemble à atteindre ce but
-                </Link>
-                .
-              </p>
-            </div>
-          </div>
-          <aside className="w-1/3 pl-0">
-            <img
-              src="/images/jean-jacques-penin-psychologue-sur-angers-photo-profile.jpg"
-              alt="Photo plein pieds de Jean Jacques Penin, psychologue sur Angers"
-            />
-          </aside>
-        </section>
-      </Row>
-      <section className="mb-8 ">
-        <Row className="bg-gray-100 py-4 pl-4">
-          <Col className="w-1/3 flex flex-col pr-8 justify-center">
-            <h2 className="text-3xl font-bold mb-4">Le blog</h2>
-            <p className="text-gray-600 mb-8">
-              Réflexions sur la vie au quotidien et comment utiliser la
-              psychologie pour vivre mieux
-            </p>
-            <Link className="text-blue-600 underline font-bold" to="/blog">
-              Tous les articles
-            </Link>
-          </Col>
-          {posts.edges.map(({ node: post }, index) => (
-            <Col className="w-1/3 pl-0 pr-0 " key={post.id}>
-              <article className={cn("h-full", `bg-gray-${index + 2}00`)}>
-                <div className="relative" style={{ paddingTop: "100%" }}>
-                  <Img
-                    className="object-cover object-top absolute top-0 left-0 w-full h-full"
-                    fluid={post.frontmatter.hero.src.childImageSharp.fluid}
-                    alt={post.frontmatter.hero.alt}
-                    style={{ position: "absolute" }}
-                  />
-                </div>
-                <Link
-                  to={`/blog${post.fields.slug}`}
-                  className="block p-4 text-center"
-                >
-                  {/*  <p className=" text-xs text-gray-600 mb-2 hidden">*/}
-                  {/*    {post.tag}*/}
-                  {/*  </p>*/}
-                  <h3 className="font-bold text-2xl">
-                    {post.frontmatter.title}
-                  </h3>
-                </Link>
-              </article>
-            </Col>
-          ))}
-        </Row>
-      </section>
-      <section className="">
+    <SEO
+      title="Accueil"
+      description="Jean Jacques Penin, Psychologue du travail sur Angers et Saint Melaine sur Aubance"
+      meta={[]}
+    />
+    <div className="-mx-8">
+      <header className="pt-24 pb-32">
         <Row>
-          <QuickLinksBanner links={quicklinks} />
+          <Col className="w-full items-center">
+            <h1
+              className="font-bold text-4xl text-center"
+              style={{
+                lineHeight: 1.4,
+                letterSpacing: "0.07em",
+              }}
+            >
+              Psychologue du Travail, <br />
+              Psychologue Clinicien
+              <span
+                className="text-base block font-normal text-gray-600 mt-2"
+                style={{ letterSpacing: "normal" }}
+              >
+                Sur Angers et Saint Melaine sur Aubance
+              </span>
+            </h1>
+          </Col>
         </Row>
-      </section>
+      </header>
+      <div>
+        <Row>
+          <MainEntries cards={cards} />
+        </Row>
+        <Row>
+          <section aria-labelledby="a-votre-ecoute" className="w-full flex">
+            <div className="w-2/3 p-8 pb-4 text-center flex flex-col justify-center items-center">
+              <div className="max-w-xl">
+                <h2 id="a-votre-ecoute" className="text-3xl mb-4 font-bold">
+                  À Votre Écoute
+                </h2>
+                <p className="mb-4">
+                  Afin d’intervenir à différents niveaux, je mobilise des
+                  approches complémentaires.
+                </p>
+
+                <p className="mb-4">
+                  La parole, l’EFT qui travaille sur la dimension émotionnelle,
+                  la PNL qui s’intéresse à la mobilisation des capacités ainsi
+                  que les méthodes du coaching qui permettent de convenir des
+                  objectifs et des moyens de les atteindre.
+                </p>
+
+                <p className="mb-4">
+                  Si votre motivation est de retrouver l'énergie, le courage, le
+                  plaisir de vivre, alors{" "}
+                  <Link className="text-blue-700 underline" to="/">
+                    travaillons ensemble à atteindre ce but
+                  </Link>
+                  .
+                </p>
+              </div>
+            </div>
+            <aside className="w-1/3 pl-0">
+              <img
+                src="/images/jean-jacques-penin-psychologue-sur-angers-photo-profile.jpg"
+                alt="Photo plein pieds de Jean Jacques Penin, psychologue sur Angers"
+              />
+            </aside>
+          </section>
+        </Row>
+        <section className="mb-8 ">
+          <Row className="bg-gray-100 py-4 pl-4">
+            <Col className="w-1/3 flex flex-col pr-8 justify-center">
+              <h2 className="text-3xl font-bold mb-4">Le blog</h2>
+              <p className="text-gray-600 mb-8">
+                Réflexions sur la vie au quotidien et comment utiliser la
+                psychologie pour vivre mieux
+              </p>
+              <Link className="text-blue-600 underline font-bold" to="/blog">
+                Tous les articles
+              </Link>
+            </Col>
+            {posts.edges.map(({ node: post }, index) => (
+              <Col className="w-1/3 pl-0 pr-0 " key={post.id}>
+                <article className={cn("h-full", `bg-gray-${index + 2}00`)}>
+                  <div className="relative" style={{ paddingTop: "100%" }}>
+                    <Img
+                      className="object-cover object-top absolute top-0 left-0 w-full h-full"
+                      fluid={post.frontmatter.hero.src.childImageSharp.fluid}
+                      alt={post.frontmatter.hero.alt}
+                      style={{ position: "absolute" }}
+                    />
+                  </div>
+                  <Link
+                    to={`/blog${post.fields.slug}`}
+                    className="block p-4 text-center"
+                  >
+                    {/*  <p className=" text-xs text-gray-600 mb-2 hidden">*/}
+                    {/*    {post.tag}*/}
+                    {/*  </p>*/}
+                    <h3 className="font-bold text-2xl">
+                      {post.frontmatter.title}
+                    </h3>
+                  </Link>
+                </article>
+              </Col>
+            ))}
+          </Row>
+        </section>
+        <section className="">
+          <Row>
+            <QuickLinksBanner links={quicklinks} />
+          </Row>
+        </section>
+      </div>
     </div>
   </Layout>
 )

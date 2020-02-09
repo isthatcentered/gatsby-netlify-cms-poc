@@ -1,70 +1,74 @@
 import React from "react"
-import { Link, graphql } from "gatsby"
-
+import { graphql, Link } from "gatsby"
 import Bio from "../components/bio"
 import Layout from "../components/layout"
 import SEO from "../components/seo"
-import { rhythm } from "../utils/typography"
-import Button from "../components/button"
+import { SafeQuery } from "../queries"
+import { AllBlogPosts } from "./__generated__/AllBlogPosts"
+import { THEME_COLORS } from "./index"
+import { Col, Row } from "../components/grid"
 
-class Blog extends React.Component {
-  render() {
-    const { data } = this.props
-    const siteTitle = data.site.siteMetadata.title
-    const posts = data.allMdx.edges
+function Blog(props: { data: SafeQuery<AllBlogPosts> }) {
+  const { data } = props
+  const siteTitle = data.site.siteMetadata.title
+  const posts = data.posts.edges
 
-    return (
-      <Layout location={this.props.location} title={siteTitle}>
-        <SEO title="All posts" />
-        <Bio />
-        <div style={{ margin: "20px 0 40px" }}>
-          {posts.map(({ node }) => {
-            const title = node.frontmatter.title || node.fields.slug
-            return (
-              <div key={node.fields.slug}>
-                <h3
-                  style={{
-                    marginBottom: rhythm(1 / 4),
-                  }}
-                >
+  return (
+    <Layout>
+      <SEO
+        title="Blog"
+        description="Comment utiliser la psychologie au quotidien pour vivre mieux"
+        meta={[]}
+      />
+      <div className="pt-8">
+        <Row
+          className="text-center py-16 mb-4 font-bold -mx-12 mb-8"
+          style={{
+            background: `linear-gradient(45deg, ${THEME_COLORS["yellow"]}, white`,
+          }}
+        >
+          <Col className="w-full">
+            <h1 className="text-3xl">Blog</h1>
+          </Col>
+        </Row>
+        <Row className="">
+          <Col className="w-2/3">
+            {posts.map(({ node: post }) => (
+              <div className="mb-8 " key={post.fields.slug}>
+                <h3 className="text-2xl font-bold underline mb-2">
                   <Link
                     style={{ boxShadow: `none` }}
-                    to={`blog${node.fields.slug}`}
+                    to={`/blog${post.fields.slug}`}
                   >
-                    {title}
+                    {post.frontmatter.title}
                   </Link>
                 </h3>
-                <small>{node.frontmatter.date}</small>
-                <p
-                  dangerouslySetInnerHTML={{
-                    __html: node.frontmatter.description || node.excerpt,
-                  }}
-                />
+                <p className="text-lg text-gray-600">{post.excerpt}</p>
               </div>
-            )
-          })}
-        </div>
-        <Link to="/">
-          <Button marginTop="85px">Go Home</Button>
-        </Link>
-      </Layout>
-    )
-  }
+            ))}
+          </Col>
+        </Row>
+      </div>
+    </Layout>
+  )
 }
 
 export default Blog
 
-export const pageQuery = graphql`
-  query {
+export const query = graphql`
+  query AllBlogPosts {
     site {
       siteMetadata {
         title
       }
     }
-    allMdx(sort: { fields: [frontmatter___date], order: DESC }) {
+    posts: allMdx(
+      sort: { fields: [frontmatter___date], order: DESC }
+      filter: { fields: { type: { eq: "blog" } } }
+    ) {
       edges {
         node {
-          excerpt
+          excerpt(pruneLength: 200)
           fields {
             slug
           }

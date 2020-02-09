@@ -32,7 +32,7 @@ const ContentPageTemplate = ({
     <SEO meta={[]} title={page.frontmatter.title} description={page.excerpt} />
 
     <Row
-      className="text-center py-16 mb-4 font-bold"
+      className="text-center py-16 mb-4 font-bold -mx-12"
       style={{
         background: `linear-gradient(45deg, ${
           THEME_COLORS[page.frontmatter.color as "yellow" | "red" | "blue"]

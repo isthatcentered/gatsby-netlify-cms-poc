@@ -34,7 +34,7 @@ const ContentPageTemplate = ({
     <Row className="text-center mb-4 font-bold flex-wrap">
       <Col className="w-full mb-8">
         <Img
-          className="-mx-4"
+          className="-mx-12"
           fluid={post.frontmatter.hero.src.childImageSharp.fluid}
           alt={post.frontmatter.hero.alt}
         />
