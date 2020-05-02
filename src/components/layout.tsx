@@ -214,8 +214,8 @@ const footerLinks = [
   { label: "Mal être", path: "/mal-etre" },
   { label: "Souffrance au travail", path: "/souffrance-au-travail" },
   { label: "Épreuves de la vie", path: "/epreuves-de-la-vie" },
-  { label: "EFT/PNL/Coaching", path: "/" },
-  { label: "Votre psychologue", path: "/" },
+  { label: "EFT/PNL/Coaching", path: "/eft-pnl-et-coaching" },
+  { label: "Votre psychologue", path: "/votre-psychologue" },
 ]
 
 const Footer = () => (
@@ -328,19 +328,19 @@ const Layout = (props: PropsWithChildren<{}>) => (
     className="min-h-screen flex flex-col font-sans"
     style={{ background: "#d3d3d347" }}
   >
-    <Container className="mb-4 pt-4">
+    <Container className="mb-4 pt-4 flex-none">
       <Row>
         <CovidBanner />
       </Row>
     </Container>
 
-    <Container className="bg-white relative">
+    <Container className="bg-white relative flex flex-col">
       <Row className="sticky top-0 left-0 right-0 bg-white z-10">
         <Col className="w-full">
           <Header />
         </Col>
       </Row>
-      <main className="px-8">{props.children}</main>
+      <main className="px-8 flex-1">{props.children}</main>
       <Footer />
     </Container>
   </div>
