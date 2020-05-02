@@ -31,7 +31,7 @@ const Logo = (props: StyleProps) => (
         }
       }
     `}
-    render={data => (
+    render={(data) => (
       <Link
         to="/"
         {...props}
@@ -145,14 +145,20 @@ const drawerNav = [
 ]
 
 const NavDrawerMenu = (props: StyleProps<{ sections: typeof drawerNav }>) => (
-  <nav aria-labelledby="main-nav-header" className={props.className} style={props.style}>
-    <h2 id="main-nav-header" className="sr-only">Navigation principale</h2>
+  <nav
+    aria-labelledby="main-nav-header"
+    className={props.className}
+    style={props.style}
+  >
+    <h2 id="main-nav-header" className="sr-only">
+      Navigation principale
+    </h2>
     <ul>
-      {props.sections.map(section => (
+      {props.sections.map((section) => (
         <li className="mb-8" key={section.label}>
           <h3 className="text-gray-600 text-sm px-2">{section.label}</h3>
           <ul>
-            {section.items.map(item => (
+            {section.items.map((item) => (
               <li key={item.title}>
                 <Link
                   className="block p-2 text-xl hover:bg-gray-100"
@@ -172,7 +178,10 @@ const NavDrawerMenu = (props: StyleProps<{ sections: typeof drawerNav }>) => (
 export const Navbar = (props: StyleProps) => {
   const [isNavOpen, setIsNavOpen] = useState<boolean>(false)
   return (
-    <Disclosure open={isNavOpen} onChange={() => setIsNavOpen(state => !state)}>
+    <Disclosure
+      open={isNavOpen}
+      onChange={() => setIsNavOpen((state) => !state)}
+    >
       <Drawer
         opened={isNavOpen}
         onClose={() => isNavOpen && setIsNavOpen(false)}
@@ -256,7 +265,7 @@ const Footer = () => (
       <Col className="w-1/4">
         <h3 className="font-bold mb-4 text-xl">Liens utiles</h3>
         <ul>
-          {footerLinks.map(link => (
+          {footerLinks.map((link) => (
             <li key={link.label}>
               <Link
                 className="text-blue-600 underline mb-4 block"
@@ -269,7 +278,7 @@ const Footer = () => (
         </ul>
       </Col>
     </Row>
-    <Row>
+    <Row className="bg-gray-100">
       <Col className="w-full p-4">
         <p className="text-center text-xs text-gray-600">
           © Jean Jacques Penin, Psychologue sur Angers et Saint Melaine sur
@@ -280,11 +289,51 @@ const Footer = () => (
   </footer>
 )
 
+const CovidBanner = () => (
+  <div className="rounded-md bg-blue-100 p-4 shadow">
+    <div className="flex">
+      <div className="flex-shrink-0">
+        <svg
+          className="h-5 w-5 text-blue-400"
+          fill="currentColor"
+          viewBox="0 0 20 20"
+        >
+          <path
+            fill-rule="evenodd"
+            d="M18 10a8 8 0 11-16 0 8 8 0 0116 0zm-7-4a1 1 0 11-2 0 1 1 0 012 0zM9 9a1 1 0 000 2v3a1 1 0 001 1h1a1 1 0 100-2v-3a1 1 0 00-1-1H9z"
+            clip-rule="evenodd"
+          />
+        </svg>
+      </div>
+      <div className="ml-3 flex-1 md:flex md:justify-between">
+        <p className="text-sm leading-5 text-blue-700">
+          Pour beaucoup de familles, de malades, de soignants, le coronavirus a
+          provoqué des dégâts autres que physiques. Le deuil, la douleur, la
+          peur, les soins intensifs soudains, la solitude, sont autant de
+          facteurs traumatiques en raison de leur survenue brutale. Ce vécu
+          émotionnel, je vous propose de le considérer afin de l’apaiser.
+          Pendant le confinement nous pouvons échanger par{" "}
+          <Link className="font-bold underline" to="/contact">
+            skype ou par téléphone
+          </Link>
+          .
+        </p>
+      </div>
+    </div>
+  </div>
+)
+
 const Layout = (props: PropsWithChildren<{}>) => (
   <div
     className="min-h-screen flex flex-col font-sans"
     style={{ background: "#d3d3d347" }}
   >
+    <Container className="mb-4 pt-4">
+      <Row>
+        <CovidBanner />
+      </Row>
+    </Container>
+
     <Container className="bg-white relative">
       <Row className="sticky top-0 left-0 right-0 bg-white z-10">
         <Col className="w-full">
