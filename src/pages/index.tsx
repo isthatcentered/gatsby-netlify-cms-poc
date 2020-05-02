@@ -3,14 +3,7 @@ import { graphql, Link } from "gatsby"
 import Layout from "../components/layout"
 import SEO from "../components/seo"
 import cn from "classnames"
-import {
-  Col,
-  Container,
-  Media,
-  Row,
-  StyleProps,
-  StylePropsWithChildren,
-} from "../components/grid"
+import { Col, Media, Row, StyleProps } from "../components/grid"
 import { HomePageData } from "./__generated__/HomePageData"
 import { SafeQuery } from "../queries"
 import Img from "gatsby-image"
@@ -36,7 +29,7 @@ const MainEntries = (props: StyleProps<{ cards: typeof cards }>) => (
       Pourquoi consulter ?
     </h2>
     <div className="flex">
-      {cards.map(card => (
+      {cards.map((card) => (
         <article
           aria-labelledby={card.link.path}
           key={card.title}
@@ -80,7 +73,7 @@ const QuickLinksBanner = (props: StyleProps<{ links: Goto[] }>) => (
       </Media.Body>
       <div className="self-center">
         <ul className="list-disc">
-          {props.links.map(link => (
+          {props.links.map((link) => (
             <li key={link.label}>
               <Link
                 className="font-bold underline text-blue-700 block p-1"
@@ -221,7 +214,7 @@ const HomePage = ({
             </aside>
           </section>
         </Row>
-        <section className="mb-8 ">
+        {posts.edges.length > 0 && <section className="mb-8 ">
           <Row className="bg-gray-100 py-4 pl-4">
             <Col className="w-1/3 flex flex-col pr-8 justify-center">
               <h2 className="text-3xl font-bold mb-4">Le blog</h2>
@@ -229,14 +222,17 @@ const HomePage = ({
                 Réflexions sur la vie au quotidien et comment utiliser la
                 psychologie pour vivre mieux
               </p>
-              <Link className="text-blue-600 underline font-bold" to="/blog">
+              <Link className="text-blue-600 underline font-bold"
+                    to="/blog">
                 Tous les articles
               </Link>
             </Col>
-            {posts.edges.map(({ node: post }, index) => (
-              <Col className="w-1/3 pl-0 pr-0 " key={post.id}>
-                <article className={cn("h-full", `bg-gray-${index + 2}00`)}>
-                  <div className="relative" style={{ paddingTop: "100%" }}>
+            {posts.edges.map( ( { node: post }, index ) => (
+              <Col className="w-1/3 pl-0 pr-0 "
+                   key={post.id}>
+                <article className={cn( "h-full", `bg-gray-${index + 2}00` )}>
+                  <div className="relative"
+                       style={{ paddingTop: "100%" }}>
                     <Img
                       className="object-cover object-top absolute top-0 left-0 w-full h-full"
                       fluid={post.frontmatter.hero.src.childImageSharp.fluid}
@@ -257,10 +253,10 @@ const HomePage = ({
                   </Link>
                 </article>
               </Col>
-            ))}
+            ) )}
           </Row>
         </section>
-        <section className="">
+        }        <section className="">
           <Row>
             <QuickLinksBanner links={quicklinks} />
           </Row>
@@ -273,7 +269,10 @@ const HomePage = ({
 export const query = graphql`
   query HomePageData {
     posts: allMdx(
-      filter: { fields: { type: { eq: "blog" } } }
+      filter: {
+        fields: { type: { eq: "blog" } }
+        frontmatter: { published: { nin: false } }
+      }
       limit: 2
       sort: { order: DESC, fields: frontmatter___date }
     ) {

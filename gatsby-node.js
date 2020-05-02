@@ -32,12 +32,13 @@ exports.onCreateNode = async ({
   })
 }
 
+
 const allMdxOfTypeOrderedByDate = type => `
     query GetAllMdxByDate{
       allMdx(
         sort: { fields: [frontmatter___date], order: DESC }
         limit: 1000
-        filter: {fields: {type: {eq: "${type}"}}}
+        filter: {fields: {type: {eq: "${type}"}}, frontmatter: {published: {nin: false} } }
       ) {
         edges {
           node {
