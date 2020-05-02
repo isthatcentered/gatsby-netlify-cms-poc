@@ -61,7 +61,7 @@ const MainEntries = (props: StyleProps<{ cards: typeof cards }>) => (
 const QuickLinksBanner = (props: StyleProps<{ links: Goto[] }>) => (
   <div
     style={props.style}
-    className={cn("px-12 py-4 flex w-full items-center", props.className)}
+    className={cn("px-12 py-8 bg-gray-100 flex w-full items-center", props.className)}
   >
     <Media>
       <Media.Body className="self-center flex-grow">

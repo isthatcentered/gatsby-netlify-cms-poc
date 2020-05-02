@@ -219,14 +219,15 @@ const footerLinks = [
 ]
 
 const Footer = () => (
-  <footer>
+  <footer className="">
+    
     <h2 className="sr-only">Informations complémentaires</h2>
     {/*<Row>*/}
     {/*  <Col className="w-full pt-8 text-center">*/}
     {/*    <Link to="/">Poser une question</Link>*/}
     {/*  </Col>*/}
     {/*</Row>*/}
-    <Row className="pt-16 pb-4">
+    <Row className="pt-8 bg-gray-200 pb-4 px-4">
       <Col className="w-1/4">
         <h3 className="font-bold mb-4 text-xl">Contact</h3>
         <p className="mb-4">
@@ -278,9 +279,9 @@ const Footer = () => (
         </ul>
       </Col>
     </Row>
-    <Row className="bg-gray-100">
-      <Col className="w-full p-4">
-        <p className="text-center text-xs text-gray-600">
+    <Row className="bg-gray-200 border-t border-gray-300">
+      <Col className="w-full p-2">
+        <p className="text-center text-xs text-gray-500">
           © Jean Jacques Penin, Psychologue sur Angers et Saint Melaine sur
           Aubance
         </p>
