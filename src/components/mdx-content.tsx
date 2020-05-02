@@ -2,7 +2,9 @@ import { StyleProps } from "./grid"
 import cn from "classnames"
 import { MDXRenderer } from "gatsby-plugin-mdx"
 import React from "react"
-import { Link } from "gatsby"
+
+
+
 
 const MdxContent = (
   props: StyleProps<{
@@ -19,7 +21,8 @@ const MdxContent = (
       <ol className="">
         {(props.toc || []).map((item, index) => (
           <li key={item.url} className="mb-2 font-bold">
-            <a href={item.url}>{item.title}</a>
+            {item.title}
+            {/*<a href={item.url}>{item.title}</a>*/}
           </li>
         ))}
       </ol>
