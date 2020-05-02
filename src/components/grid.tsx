@@ -15,7 +15,7 @@ export const Container = (props: StylePropsWithChildren<{}>) => (
     {...props}
     className={cn(
       props.className,
-      "Container flex-1 mx-auto px-4 max-w-6xl px-4"
+      "Container flex-1 mx-auto px-4 max-w-6xl px-4 w-full"
     )}
   />
 )
