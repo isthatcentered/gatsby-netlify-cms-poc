@@ -126,15 +126,15 @@ const cards = [
   quicklinks: Goto[] = [
     {
       label: "Adresse",
-      path: "/",
+      path: "/contact",
     },
     {
       label: "Tarifs",
-      path: "/",
+      path: "/contact",
     },
     {
       label: "Prendre rendez-vous",
-      path: "/",
+      path: "/contact",
     },
   ]
 
