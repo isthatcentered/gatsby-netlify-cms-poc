@@ -19,6 +19,7 @@ collections:
     public_folder: "../../static/assets"
     fields:
       - { name: date, label: Date, widget: date }
+      - { name: published, label: Publié, widget: "boolean", default: true }
       - label: "Hero image"
         name: "hero"
         hint: "L'image affichée en haut de chaque post ainsi que sur le lien vers le post dans la page d'accueil"
