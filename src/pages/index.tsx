@@ -33,13 +33,13 @@ const MainEntries = (props: StyleProps<{ cards: typeof cards }>) => (
         <article
           aria-labelledby={card.link.path}
           key={card.title}
-          className={cn(props.className, "px-4 py-6 text-center flex-1 w-1/3")}
+          className={cn(props.className, "px-4 py-6 text-center flex-1 w-1/3 flex flex-col items-center justify-start")}
           style={{ ...props.style, background: card.color }}
         >
           <img className="mb-4" src={card.image} alt={card.imageAlt} />
           <h3
             id={card.link.path}
-            className="font-bold text-2xl mb-4"
+            className="font-bold text-2xl mb-2"
             style={{
               lineHeight: 1.2,
               letterSpacing: "0.06em",
@@ -48,8 +48,8 @@ const MainEntries = (props: StyleProps<{ cards: typeof cards }>) => (
             {card.title}
           </h3>
 
-          {/*<p className="text-sm mt-auto">{props.excerpt}</p>*/}
-          <Link className="underline" to={card.link.path}>
+          <p className="text-sm mb-4">{card.excerpt}</p>
+          <Link className="underline mt-auto inline-block" to={card.link.path}>
             {card.link.label}
           </Link>
         </article>
@@ -93,34 +93,34 @@ const cards = [
     {
       title: "Mal être",
       excerpt:
-        "Vous êtes déprimé ? Vous manquez de confiance en vous ? Peut être vous battez-vous contre une anxiété permanente ? Vous voulez reprendre votre vie en main ? Vous rêvez d'une vie plus simple ?",
+        "Confiance en soi, gestion des Emotions, hauts potentiels (HPI)",
       color: THEME_COLORS["yellow"],
       image: "/images/mal-etre.png",
       imageAlt: "Dessin d'une forme abstraite évoquant un mal être interne",
-      link: { path: "/mal-etre", label: "Apprendre à mieux vivre" },
+      link: { path: "/mal-etre", label: "Lire la suite" },
     },
     {
       title: "Souffrance au travail",
       excerpt:
-        "Votre travail envahit toute votre pensée.. Peut être venez-vous de vivre un conflit professionnel ou êtes vous en perte d'emploi ? Peut être traversez-vous une profonde démotivation, êtes vous proche du burn-out ? Vous rêvez de mieux utiliser vos compétences et envisagez un changement ? Un nouveau challenge se présente et vous vous demandez comment le relever ?",
+        "Burn out, Harcèlement, emploi...",
       color: THEME_COLORS["red"],
       image: "/images/sante-au-travail.png",
       imageAlt:
         "Dessin d'une forme abstraite évoquant la peur de parler en publique",
       link: {
         path: "/souffrance-au-travail",
-        label: "Retrouver le goût d'aller au travail",
+        label: "Lire la suite",
       },
     },
     {
       title: "Epreuves de la vie",
       excerpt:
-        "Votre vie de couple est en péril ? Vous faites face à une situation difficile avec vos enfants, vos parents ? Votre santé vous préoccupe ? Vous avez vécu un accident; un traumatisme ? Et vous aimeriez en parler pour vous libérer ?",
+        "Maladie, abus moral ou sexuel, traumatisme, difficultés en famille...",
       color: THEME_COLORS["blue"],
       image: "/images/epreuves-de-la-vie.png",
       imageAlt:
         "Dessin d'une forme abstraite évoquant un chemin de vie difficile",
-      link: { path: "/epreuves-de-la-vie", label: "Apprendre à mieux vivre" },
+      link: { path: "/epreuves-de-la-vie", label: "Lire la suite" },
     },
   ],
   quicklinks: Goto[] = [
