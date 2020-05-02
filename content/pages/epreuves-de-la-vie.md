@@ -1,5 +1,5 @@
 ---
-color: 'yellow'
+color: yellow
 title: Epreuves de la vie
 ---
 ## Ils s'expriment ainsi
@@ -28,7 +28,7 @@ Je viens d'apprendre que je suis malade. 
 
 J'ai eu un accident ...                
 
-![Photo d'une personne regardant un coucher de soleil au bord d'une falaise, les pied dans le vide](assets/joshua-sukoff-tEIPHskWETc-unsplash.jpg "La psychologie pour dépasser les traumatismes: ruptures, viol, abus, harcèlement, maladie, perte d'emploi")
+![Personne criant "victoire" devant une cascade ](assets/psychologue-angers-saint-melaine-deuil-emploi-santé-stress.jpg "La psychologie pour dépasser les traumatismes: ruptures, viol, abus, harcèlement, maladie, perte d'emploi")
 
 ## Retrouver l'énergie, le plaisir de vivre !
 
